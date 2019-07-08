@@ -19,6 +19,9 @@
 * require 는 동기함수이다. import 도 그럴것으로 추정된다.
 * 각 모듈은 서로 다른 버젼의 모듈을 사용할수 있다.
 * 순환 의존성 문제를 자체적으로 해결하지 않는다. 프로그래머가 피해서 설계해야 한다.
-* require 와 import 사이에 기능적인 차이는 크지 않다. 다만 require 는 동적으로(무슨 뜻?) 모듈 로딩이 가능하다.
+* require vs import
+  * import 는 native 코드로 동작하여 성능이 우수 하지만 node 에서는 import 가 require 로 변환되기 때문에 차이가 없다.
+  * import 는 전체 파일 실행전에 load 되고 분석된다. 반번 require 는 조건문에 따라 load 되기도 하고 load 되지 않을수 있다.
+  * import 동작에 대해서는 분석이 더 필요하다.
 
 ### 관찰자 패턴
