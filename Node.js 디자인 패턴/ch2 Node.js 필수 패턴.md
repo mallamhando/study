@@ -23,6 +23,7 @@
 * require vs import
   * import 는 native 코드로 동작하여 성능이 우수 하지만 node 에서는 import 가 require 로 변환되기 때문에 차이가 없다.
   * import 는 전체 파일 실행전에 load 되고 분석된다. 반번 require 는 조건문에 따라 load 되기도 하고 load 되지 않을수 있다.
-  * import 동작에 대해서는 분석이 더 필요하다.
+  * import 는 비동기 동작이고 require 는 동기 동작이다. 하지만 import 는 부팅동작에서 실행되기 때문에 비동기 동작에 따른 복잡도가 더 증가하지는 않는다.
+  * import 동작에 대해서는 분석이 더 필요하다. 자세한 동작에대한 분석은 아직 확인이 안되고 있다.
 
 ### 관찰자 패턴
