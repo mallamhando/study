@@ -6,7 +6,13 @@
 
 ### 스트림 시작하기
 ##### flowing vs pause mode
-* pause mode 가 제어 흐름에 더 유연성을 가지고 있음
+* pause mode 가 제어 흐름에 더 유연성을 가지고 있음, 상세 이유는 아래와 같다.
+* https://nodejs.org/api/stream.html#stream_two_reading_modes
+  * `Readable` stream 은 소비 또는 무시 핸들러가 설정되기 전까지 데이터를 만들어내지 않는다.
+  * 만약 소비 콜백이 제거되거나 비활성화 되면 `Readable` stream 은 데이터 만들기를 정지시킨다.
+  * 하지만 반대로 `data` 이벤트 핸들러가 제거되면 자동으로 `pause` 모드로 변경되지 않는다.
+  * flowing 모드일때 `data` 이벤트가 없이도 background 모드로 `readable` stream 은 데이터를 계속 만들어 낸다.
+  * 만약 flowing 모드일때 소비 핸들러가 없다면 데이터는 잃어버리게 된다.
 
 ### 스토림을 이용한 비동기 제어 흐름
 ### 파이프 패턴
