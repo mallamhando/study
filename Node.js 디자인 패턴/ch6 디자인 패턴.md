@@ -26,7 +26,6 @@
 ### 탬플릿 패턴
 
 ### 미들웨어 패턴
-
 ##### Intercepting Filter
 * [Intercepting Filter - Oracle](https://www.oracle.com/technetwork/java/interceptingfilter-142169.html)
 * 연속된 데코레이터의 조합
@@ -34,6 +33,9 @@
 * 병렬적 프로그래밍이 가능해진다.
 
 ##### Chain of Responsibility
+* [chain-of-responsibility](https://dzone.com/articles/design-patterns-uncovered-chain-of-responsibility)
+* GoF 의 책임 연쇄 패턴과 동일
+* 입력과 출력 값이 동일하고, next 를 호출할수 있으면 책임 연쇄 패턴이 된다.
 
 ##### 감상
 때로는 디자인 패턴 구조가 너무 쉬워서 왜 이런걸 굳이 적어놨을까 싶을때가 있다. 하지만 그렇게 쉽게 이해할 수 있는 패턴이 아니라면 어떻게 사람들이 사용할 수 있을까?
