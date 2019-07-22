@@ -27,4 +27,18 @@
 
 ### 미들웨어 패턴
 
+##### Intercepting Filter
+* [Intercepting Filter - Oracle](https://www.oracle.com/technetwork/java/interceptingfilter-142169.html)
+* 연속된 데코레이터의 조합
+* 입력과 출력 값에 동일한 타입을 사용하면 각 필터들은 어디에든 위치할 수 있다.
+* 병렬적 프로그래밍이 가능해진다.
+
+##### Chain of Responsibility
+
+##### 감상
+때로는 디자인 패턴 구조가 너무 쉬워서 왜 이런걸 굳이 적어놨을까 싶을때가 있다. 하지만 그렇게 쉽게 이해할 수 있는 패턴이 아니라면 어떻게 사람들이 사용할 수 있을까?
+패턴과 심오한 알고리즘은 다르다. 패턴은 심오한 통찰에서 나오지만, 구조는 간단하고 이해하기 쉬어야 한다. 그것이 패턴의 역할이다.
+
+J2EE 의 Intercepting Filter 에서 확인 할수 있듯이 병렬 컴포넌트형 프로그래밍은 모든 프로그래밍 구조에 있어서 공통적인 관심사이다.
+
 ### 커맨드 
