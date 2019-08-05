@@ -38,6 +38,9 @@
 * React 의 JSX 와 ES6 문법을 자유롭게 사용하는 장점을 얻기 위해서는 Webpack 이 필수적이다.
 
 ### 범용 JS 앱
+* React 초기 rendering 을 server 에서 진행 후 연결하면 SEO 에 적합한 site 가 될수 있다.
+* API proxy 를 사용하면 api server 와 front-end 서버를 분리할 수 있다. 각각을 micro service 로 분리하기 위해서로 보인다.
+* express 는 왜 3000 port 를 사용하는 것일까?
 
 ### 감상
 이전에 webpack 에 대한 포스팅을 봤을때 어떤 감흥도 없었지만 이제는 이게 무엇을 말하는지 알것같다.
