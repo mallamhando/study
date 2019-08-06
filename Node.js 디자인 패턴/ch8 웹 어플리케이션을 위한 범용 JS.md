@@ -36,11 +36,20 @@
 ##### React and Webpack
 * React 는 Webpack, Babel, Gulp, Browserify 가 항상 필요한 것은 아니다.
 * React 의 JSX 와 ES6 문법을 자유롭게 사용하는 장점을 얻기 위해서는 Webpack 이 필수적이다.
+##### React Router
+* React Router 를 사용하면 history 관리가 가능해진다.
 
 ### 범용 JS 앱
 * React 초기 rendering 을 server 에서 진행 후 연결하면 SEO 에 적합한 site 가 될수 있다.
 * API proxy 를 사용하면 api server 와 front-end 서버를 분리할 수 있다. 각각을 micro service 로 분리하기 위해서로 보인다.
+  * 참고자료: https://poiemaweb.com/js-ajax#53-load-jsonp
+  * JSONP, CORS, proxy 의 방법이 있지만 proxy 가 가장 진보적인 방법으로 보인다.
 * express 는 왜 3000 port 를 사용하는 것일까?
+* 참고자료: https://poiemaweb.com/js-spa
+  * history 와 SEO 최적화는 웹 프론트엔드 최적화의 필수요소
+  * SEO 최적화를 위해서는 url 분리가 필요하고,
+  * url 이 분리된 상태에서 SPA 를 유지하기 위해서는 history 관리가 필요하다.
+  * history 와 SEO 는 SPA 를 위해 떨어질 수 없는 주요 개념이다.
 
 ### 감상
 이전에 webpack 에 대한 포스팅을 봤을때 어떤 감흥도 없었지만 이제는 이게 무엇을 말하는지 알것같다.
