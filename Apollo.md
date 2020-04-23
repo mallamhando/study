@@ -51,4 +51,4 @@ fieldName: (parent, args, context, info) => data;
 * 사용자 인증 mutation 동작을 하면 인증 토큰을 얻게 된다.
 * 인증 토큰을 http header 에 넣은 뒤에 mutation 을 해야 사용자와 관련된 mutation 동작이 context 를 통해 id 를 받아 실행한다.
 
-### Production 환경에서의 Apollo Server
+# Apollo Client
