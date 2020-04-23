@@ -1,6 +1,10 @@
 # Tutorial
 https://www.apollographql.com/docs/tutorial/introduction
 
+# Apollo Server
+기존 DB 또는 API 를 이용해서 graphQL API 를 생성하는 서버
+? Apollo Client 만 있는 경우, PWA 에서는 누가 Apollo Server 역할을 할까?
+
 ### schema
 * 사용자가 원하는 행위를 정의하고, schema 를 작성
 * schema-first development: back-end 와 front-end 사이의 협업이 필요
@@ -40,3 +44,4 @@ fieldName: (parent, args, context, info) => data;
 ##### Type
 * schema 의 모든 type 에 대한 resolver 가 있다.
 * type 에 대한 resolver 를 정하지 않고, 부모 객체가 같은 이름의 속성을 가지고 있다면 graphQL 의 기본 resolver 가 동작된다.
+* type 에 대한 resolver 가 적절하게 설정되지 않으면 기본 resolver 가 있어도 데이터가 제대로 읽히지 않는다.
