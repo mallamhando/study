@@ -46,3 +46,9 @@ fieldName: (parent, args, context, info) => data;
 * schema 의 모든 type 에 대한 resolver 가 있다.
 * type 에 대한 resolver 를 정하지 않고, 부모 객체가 같은 이름의 속성을 가지고 있다면 graphQL 의 기본 resolver 가 동작된다.
 * type 에 대한 resolver 가 적절하게 설정되지 않으면 기본 resolver 가 있어도 데이터가 제대로 읽히지 않는다.
+
+##### 사용자 인증
+* 사용자 인증 mutation 동작을 하면 인증 토큰을 얻게 된다.
+* 인증 토큰을 http header 에 넣은 뒤에 mutation 을 해야 사용자와 관련된 mutation 동작이 context 를 통해 id 를 받아 실행한다.
+
+### Production 환경에서의 Apollo Server
