@@ -33,3 +33,10 @@ fieldName: (parent, args, context, info) => data;
 * context: GraphQL 동작의 모든 resolver 들에게 전달되는 데이터. 인증 데이터나 데이터 소스에 대한 접근 상태를 저장할 수 있다.
 * info: 동작에대한 수행 상태를 나타내는 정보, 상세 고급 동작에 쓰인다.
 
+##### Pagination
+* 한번에 많은 데이터 Set 을 가져오는것은 어플리케이션을 느리게 함
+* resolver 를 통해 Cursor-based pagination 가능
+
+##### Type
+* schema 의 모든 type 에 대한 resolver 가 있다.
+* type 에 대한 resolver 를 정하지 않고, 부모 객체가 같은 이름의 속성을 가지고 있다면 graphQL 의 기본 resolver 가 동작된다.
