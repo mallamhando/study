@@ -93,4 +93,4 @@ https://d2.naver.com/helloworld/4245995
 1. 없으면 서버에서 데이터를 fetching 하여 apollo cache 에 데이터를 저장
 1. component 에 데이터 전달
 
-### server 의 데이터가 변경되었을 경우
+### server 의 데이터가 변경되었을 경우, cache update 방법
