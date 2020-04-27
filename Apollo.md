@@ -85,7 +85,9 @@ direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거�
 > local data 를 수정할때만 사용하기 때문인걸까?
 
 # 추가 자료
-https://d2.naver.com/helloworld/4245995
+* [redux 와 apollo 단순비교](https://d2.naver.com/helloworld/4245995)
+* [redux + Universal Router 와 apollo 동작 비교](https://d2.naver.com/helloworld/2838729)
+* [MobX](https://woowabros.github.io/experience/2019/01/02/kimcj-react-mobx.html)
 
 # Apollo 데이터 수신 과정
 1. component 에 query 가 설정되면
