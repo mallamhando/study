@@ -52,3 +52,9 @@ fieldName: (parent, args, context, info) => data;
 * 인증 토큰을 http header 에 넣은 뒤에 mutation 을 해야 사용자와 관련된 mutation 동작이 context 를 통해 id 를 받아 실행한다.
 
 # Apollo Client
+* `useQuery` 는 component 가 시작될때 query 를 수행하여 데이터를 component 에 나타날수 있게 한다.
+* `useQuery` 의 `fetchMore` 를 사용하면 pagination 기능을 수행할 수 있다.
+* `useMuation` 는 mutation 하기 위한 함수를 component 에 제공한다.
+* `Fragment` 를 이용해 query 를 나누고 합할수 있다.
+* `fetchPolicy` 를 이용해 network 에서 데이터를 가져올지 cache 에서 데이터를 query 해서 가져올지 정할수 있다.
+* Apollo Client 는 redux 와 같은 cache 기능을 제공한다.
