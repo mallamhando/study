@@ -81,3 +81,5 @@ mutation 함수의 onCompleted 를 이용한 callback 함수,
 
 ##### client resolvers
 direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거하는 복잡한 동작에 사용한다.
+> server 에 수정사항을 전달한뒤에 다시 읽어오는 동작대신 cache 에 있는 데이터를 삭제하는 동작은 위험하지 않을까?
+> local data 를 수정할때만 사용하기 때문인걸까?
