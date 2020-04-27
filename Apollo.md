@@ -83,3 +83,14 @@ mutation 함수의 onCompleted 를 이용한 callback 함수,
 direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거하는 복잡한 동작에 사용한다.
 > server 에 수정사항을 전달한뒤에 다시 읽어오는 동작대신 cache 에 있는 데이터를 삭제하는 동작은 위험하지 않을까?
 > local data 를 수정할때만 사용하기 때문인걸까?
+
+# 추가 자료
+https://d2.naver.com/helloworld/4245995
+
+# Apollo 데이터 수신 과정
+1. component 에 query 가 설정되면
+1. component 가 loading 될때 apollo cache 에 저장된 데이터를 먼저 확인하고,
+1. 없으면 서버에서 데이터를 fetching 하여 apollo cache 에 데이터를 저장
+1. component 에 데이터 전달
+
+### server 의 데이터가 변경되었을 경우
