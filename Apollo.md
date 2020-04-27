@@ -52,9 +52,32 @@ fieldName: (parent, args, context, info) => data;
 * 인증 토큰을 http header 에 넣은 뒤에 mutation 을 해야 사용자와 관련된 mutation 동작이 context 를 통해 id 를 받아 실행한다.
 
 # Apollo Client
+* `Fragment` 를 이용해 query 를 나누고 합할수 있다.
+
+### Query
 * `useQuery` 는 component 가 시작될때 query 를 수행하여 데이터를 component 에 나타날수 있게 한다.
 * `useQuery` 의 `fetchMore` 를 사용하면 pagination 기능을 수행할 수 있다.
-* `useMuation` 는 mutation 하기 위한 함수를 component 에 제공한다.
-* `Fragment` 를 이용해 query 를 나누고 합할수 있다.
+
+### Mutation
+* `useMuation` 는 mutation 하기 위한 함수와 loading 상태를 나타내는 data 값을 component 에 제공한다.
 * `fetchPolicy` 를 이용해 network 에서 데이터를 가져올지 cache 에서 데이터를 query 해서 가져올지 정할수 있다.
-* Apollo Client 는 redux 와 같은 cache 기능을 제공한다.
+
+### Local data Caching
+redux 같은 library 들은 특정 상태를 caching, 저장하면서 필요한 화면을 보여준다.
+예를 들어 list 항목의 한 id 를 선택하여 상세 정보를 보여주는 기능이 있을때,
+선택한 id 와 화면 상태 정보를 저장해야 한다.
+
+Apollo Client 는 `extend` 로 query data 에 local 데이터를 추가할 수 있다.
+따라서 기본 query 동작을 위해 있는 caching 기능을 local 데이터에도 이용할 수 있다.
+
+* `extend` 로 추가된 cache 데이터는 `@client` 를 이용하여 query 하여 읽어온다.
+* `Virtual fields` 이해 안감, `extend` 와 어떤 차이가 있는 것인지
+
+##### direct cache write
+단순히 cache 에 데이터를 write 할때 사용한다.
+`useApolloClient` 를 이용해 client 를 불러와 `client.writeData` 를 사용하거나,
+mutation 함수의 onCompleted 를 이용한 callback 함수,
+또는 `update` callback 을 사용하면 된다.
+
+##### client resolvers
+direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거하는 복잡한 동작에 사용한다.
