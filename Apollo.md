@@ -105,3 +105,8 @@ direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거�
 * 새로운 API 는 API error 핸들러 이전에 등록해야 에러가 발생하지 않는다.
 ##### dataSource
 * 필수요소는 아니다. dataSource 로 작업할수 있다면 apollo 와의 결합성이 더 나아지는 것으로 보인다.
+##### resolver 만들기
+* graphQL 를 쓰면 편리한 query 와 mutation 가 알아서 따라 올것 같지만, 실은 resolver 로 그 편리한 기능을 다 만들어줘야 한다.
+* graphQL 과 apollo 는 편리하게 사용하기 위한 규칙, 특을 제공한다고 보는게 더 맞을것 같다.
+* 하지만 어려운 resolver 를 구현하고 나면 정말 편리하게 사용할수 있다.
+* 편리한 규칙은 그냥 만들어지지 않는다. 무게감 있는 형식이 느껴진다.
