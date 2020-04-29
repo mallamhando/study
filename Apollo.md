@@ -98,3 +98,8 @@ direct cache write 와 달리 list 에 있는 데이터를 더하거나 제거�
 1. component 에 데이터 전달
 
 ### server 의 데이터가 변경되었을 경우, cache update 방법
+
+# 실사용 후기
+##### express 미들웨어 동작에 대한 이해가 부족해 발생한 실수
+* express.router 와 API error 핸들러를 express 미들웨어에 등록한 뒤에 apollo-server 를 등록하면 `/graphql` 경로에 대한 API error 가 발생
+* 새로운 API 는 API error 핸들러 이전에 등록해야 에러가 발생하지 않는다.
