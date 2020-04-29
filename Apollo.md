@@ -1,6 +1,6 @@
 # Tutorial
-[tutorial](https://www.apollographql.com/docs/tutorial/introduction)
-[play ground](https://www.graphqlbin.com/v2)
+* [tutorial](https://www.apollographql.com/docs/tutorial/introduction)
+* [play ground](https://www.graphqlbin.com)
 
 # Apollo Server
 기존 DB 또는 API 를 이용해서 graphQL API 를 생성하는 서버
