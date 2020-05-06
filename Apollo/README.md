@@ -35,3 +35,6 @@
 * https://github.com/kriasoft/react-starter-kit
 * apollo feature 의 update 가 오래되어 동작되지 않는다.
 * apollo client 가 없어도 동작할수 있도록 fetch 를 hook 하여 `/graphql` url 일때만 graphql 이 동작되도록 되어 있다.
+##### Apollo cache immutable
+* mutation 하지 않으면 cache 의 데이터가 변경되지 않는다.
+* redux + immer.js 기능 포함
