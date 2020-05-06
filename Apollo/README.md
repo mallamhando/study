@@ -1,5 +1,6 @@
 * [Server](./Server.md)
 * [Client](./Client.md)
+* [Link](./Link.md)
 
 # Tutorial
 * [tutorial](https://www.apollographql.com/docs/tutorial/introduction)
