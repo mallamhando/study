@@ -31,3 +31,7 @@
 * graphQL 과 apollo 는 편리하게 사용하기 위한 규칙, 특을 제공한다고 보는게 더 맞을것 같다.
 * 하지만 어려운 resolver 를 구현하고 나면 정말 편리하게 사용할수 있다.
 * 편리한 규칙은 그냥 만들어지지 않는다. 무게감 있는 형식이 느껴진다.
+##### react-starter-kit
+* https://github.com/kriasoft/react-starter-kit
+* apollo feature 의 update 가 오래되어 동작되지 않는다.
+* apollo client 가 없어도 동작할수 있도록 fetch 를 hook 하여 `/graphql` url 일때만 graphql 이 동작되도록 되어 있다.
