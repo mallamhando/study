@@ -4,6 +4,7 @@
 ### Query
 * `useQuery` 는 component 가 시작될때 query 를 수행하여 데이터를 component 에 나타날수 있게 한다.
 * `useQuery` 의 `fetchMore` 를 사용하면 pagination 기능을 수행할 수 있다.
+* GraphQL 서버의 schema 에 대한 정보가 필요하지 않다. 하지만 Query 가 schema 를 벗어나면 동작하지 않기 때문에, **schema 에 대한 정보 중에서 Query 해서 읽기 위한 데이터의 graph 구조에 대해서는 반드시 알고 있어야 한다.** 라고 말할 수 있다.
 
 ### Mutation
 * `useMuation` 는 mutation 하기 위한 함수와 loading 상태를 나타내는 data 값을 component 에 제공한다.
