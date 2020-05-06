@@ -5,7 +5,7 @@
 ##### 질문과 답
 * SSR 에서 Apollo Client 가 필요한 이유
 * 다른 서버의 graphql 을 가져오는 방법
-
+  * `npx apollo schema:download --endpoint=http://localhost:4040/graphql schema.json`
 ### Apollo Link HTTP
 
 ### Apollo Link Schema
