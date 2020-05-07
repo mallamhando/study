@@ -11,6 +11,7 @@
 * [redux + Universal Router 와 apollo 동작 비교](https://d2.naver.com/helloworld/2838729)
 * [MobX 적용기](https://woowabros.github.io/experience/2019/01/02/kimcj-react-mobx.html)
 * [apollo redux mobx 비교](https://devtimothy.tistory.com/167)
+* [GraphQL with indexedDB](https://codeburst.io/large-offline-datasets-with-apollo-client-c19c987e4a98)
 
 # Apollo 데이터 수신 과정
 1. component 에 query 가 설정되면
