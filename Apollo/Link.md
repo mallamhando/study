@@ -8,10 +8,13 @@ Apollo Link 는 Apollo Client, graphql-tools 의 schema 만들기, GraphiQL, Cli
 retries, live queries, 다양한 transports, 대안적인 caching layers, and offline support 를 만족하기 위해서는 Apollo Client 하나로는 불가능하기 때문에 별도의 library 를 만드는 것이 Apollo Link 의 목적이다.
 
 ##### 질문과 답
-* SSR 에서 Apollo Client 가 필요한 이유
-  * mockup data 가 필요해서?
+* SSR 에서 Apollo Link 가 필요한 이유
+  * mockup data 가 필요하기 때문이다.
+* SSR 에서 mockup data 말고 실제 query 를 읽어오면 안될까?
+  * 불가능하지는 않지만 서버의 부하를 줄이고, Apollo Client 의 cache 를 미리 설정할수 없기 때문?
 * 다른 서버의 graphql 을 가져오는 방법
-  * `npx apollo schema:download --endpoint=http://localhost:4040/graphql schema.json`
+  * 파일로 저장 `npx apollo schema:download --endpoint=http://localhost:4040/graphql schema.json`
+  * 코드에서 불러오기 `const schema = await introspectSchema(link);`
 
 ### Apollo Link HTTP
 Apollo Client 가 GraphQL 서버의 데이터를 가져오는 최적의 방법과 도구를 제공
