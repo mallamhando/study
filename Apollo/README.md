@@ -39,5 +39,6 @@
 ##### Apollo cache immutable
 * mutation 하지 않으면 cache 의 데이터가 변경되지 않는다.
 * redux + immer.js 과 같은 구성이 필요없다.
-##### SSR 에서의 Apollo
-* schema 및 resolver 공유 방법에 대한 고민이 필요
+##### Schema driven development
+* schema 를 위한 프로그램이 아니라, schema 설계에서부터 사용자의 요구사항이 제대로 반영되어야 한다.
+* schema, resolver 가 client 와 server 모두에 쉽게 공유되고 쉽게 수정될수 있어야 한다.
