@@ -42,3 +42,4 @@
 ##### Schema driven development
 * schema 를 위한 프로그램이 아니라, schema 설계에서부터 사용자의 요구사항이 제대로 반영되어야 한다.
 * schema, resolver 가 client 와 server 모두에 쉽게 공유되고 쉽게 수정될수 있어야 한다.
+* 즉, 프로그램의 schema 의존성을 피할 왕도는 없다. schema 의 작은 부분이라도 변경되면 전체 소스의 변화량은 크다. 최대한 적게 변할수 있도록 잘 짜는 수밖에 없다.
