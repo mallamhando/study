@@ -8,11 +8,15 @@
 * [play ground](https://www.graphqlbin.com)
 
 # 추가 자료
+* [GraphQL with indexedDB](https://codeburst.io/large-offline-datasets-with-apollo-client-c19c987e4a98)
+##### 국내 사용 후기
+* [apollo redux mobx 비교](https://devtimothy.tistory.com/167)
 * [redux 와 apollo 단순비교](https://d2.naver.com/helloworld/4245995)
 * [redux + Universal Router 와 apollo 동작 비교](https://d2.naver.com/helloworld/2838729)
 * [MobX 적용기](https://woowabros.github.io/experience/2019/01/02/kimcj-react-mobx.html)
-* [apollo redux mobx 비교](https://devtimothy.tistory.com/167)
-* [GraphQL with indexedDB](https://codeburst.io/large-offline-datasets-with-apollo-client-c19c987e4a98)
+* [local note 만들기](https://coding-dahee.tistory.com/117)
+* [원격에서 schema 가져오기](https://www.daleseo.com/graphql-react-apollo-hooks/)
+* [초보 후기](https://medium.com/@han7096/graphql-%EA%B3%BC-apollo%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EB%A9%B0-%EC%A4%91%EA%B0%84-%EC%A0%95%EB%A6%AC-42981522b188)
 
 # Apollo 데이터 수신 과정
 1. component 에 query 가 설정되면
