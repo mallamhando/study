@@ -46,3 +46,6 @@
 * 즉, 프로그램의 schema 의존성을 피할 왕도는 없다. schema 의 작은 부분이라도 변경되면 전체 소스의 변화량은 크다. 최대한 적게 변할수 있도록 잘 짜는 수밖에 없다.
 ##### 학습 시간
 * 길다. redux, fetch, immer 등을 사용하는 수준이 아니다.
+##### with redux
+* 기존 redux 로 동작하던 코드를 반드시 apollo client cache 로 변경할 필요가 없었다.
+* 프로젝트의 특성상 schema 의 일부 데이터는 변하기 쉬운 Object type 이었다. Query 와 schema 를 계속 수정하는 것보다 redux 를 사용하는 것이 간단했다.
