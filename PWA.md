@@ -18,6 +18,10 @@
 * https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md
 * 설치된 site 는 읽기 쓰기 권한이 유지된다고 하지만 예제 site 에서는 해당 기능이 동작되지는 않았음
 
+##### https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/App_structure
+* 앱 쉘 개념
+* SSR 에 PWA 를 적용하기
+
 ### Install
 ##### HTTPS 필수
 * HTTPS 접속된 PWA 만 설치가 가능하다.
