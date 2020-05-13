@@ -1,6 +1,6 @@
 ### 사전조사
 ##### https://www.raymondcamden.com/2015/04/17/indexeddb-and-limits
-* Chrome 은 데이터 공간이 모자르면 IndexedDB 를 임의로 삭제할수 있다.
+* Chrome 은 데이터 공간이 모자르면 LRU 정책에 따라 IndexedDB 를 임의로 삭제할수 있다.
 ##### https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria
 
 ##### https://web.dev/storage-for-the-web/
