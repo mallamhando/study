@@ -1,4 +1,22 @@
 # PWA
+### Data Store
+##### https://dexie.org/docs/Version/Version.stores()
+Never index properties containing images, movies or large (huge) strings. Store them in IndexedDB, yes! but just don’t index them!
+```
+db.version(1).stores({
+  friends: '++id, name, age' // don't index "picture"
+});
+
+db.friends.put({
+  name: 'Camilla',
+  age: 25,
+  picture: await getBlob('camilla.png') // but store it
+});
+```
+Example how the “picture” property is stored without being indexed.
+
+Writing this because there have been some issues on github where people index images or movies without really understanding the purpose of indexing fields. A rule of thumb: Are you going to put your property in a where(‘…’) clause? If yes, index it, if not, dont. Large indexes will affect database performance and in extreme cases make it unstable.
+
 ##### https://www.raymondcamden.com/2015/04/17/indexeddb-and-limits
 * Chrome 은 데이터 공간이 모자르면 LRU 정책에 따라 IndexedDB 를 임의로 삭제할수 있다.
 ##### https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria
