@@ -22,3 +22,4 @@
 ##### HTTPS 필수
 * HTTPS 접속된 PWA 만 설치가 가능하다.
 * local server 의 SSR 의 경우 별도의 HTTPS 작업이 필요하다.
+* offline 상태에서의 설치가 어렵다.
