@@ -17,3 +17,8 @@
 * local 파일을 직접 읽고 수정할수 있다.
 * https://chromium.googlesource.com/chromium/src/+/lkgr/docs/security/permissions-for-powerful-web-platform-features.md
 * 설치된 site 는 읽기 쓰기 권한이 유지된다고 하지만 예제 site 에서는 해당 기능이 동작되지는 않았음
+
+### Install
+##### HTTPS 필수
+* HTTPS 접속된 PWA 만 설치가 가능하다.
+* local server 의 SSR 의 경우 별도의 HTTPS 작업이 필요하다.
