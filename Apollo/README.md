@@ -27,6 +27,7 @@
 ### server 의 데이터가 변경되었을 경우, cache update 방법
 * mutation 의 `refetchQueries` 옵션
 * query 의 `fetchPolich` 옵션
+* client 의 `resetStore` 함수는 cache 를 clear 한다.
 
 # 실사용 후기
 ##### express 미들웨어 동작에 대한 이해가 부족해 발생한 실수
