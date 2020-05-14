@@ -19,3 +19,6 @@ Blob 은 Browser 어딘가에 저장되는 실제 데이터를 가리킨다.
 한번 Browser 에서 input 된 다음에는 영속적으로 사용할수 있다.
 
 브라우저 내에서는 Blob 객체를 복사 및 전달하는 것만으로 실제 데이터를 공유하여 사용하는것이 가능해진다.
+
+### Chrome Blob
+* https://chromium.googlesource.com/chromium/src/+/master/storage/browser/blob/README.md
