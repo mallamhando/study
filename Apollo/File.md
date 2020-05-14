@@ -5,7 +5,7 @@
 
 > Note: When using typeDefs, Apollo Server adds `scalar Upload` to your schema, so any existing declaration of `scalar Upload` in the type definitions should be removed. If you create your schema with `makeExecutableSchema` and pass it to ApolloServer constructor using the schema param, make sure to include `scalar Upload`.
 
-Apollo sever 에서 제공하는 `scalar upload` 를 통해 blob 데이터를 서버에 전달할수 있다.
+Apollo 에서 제공하는 `scalar Upload` 를 통해 blob 데이터를 서버에 전달할수 있다.
 
 Blob 과 실제 데이터는 다르다. Blob 은 파일에 대한 정보를 가지고 있는 객체이고, 실제 데이터는 Blob 을 통해 읽어올수 있다. Blob 을 저장하는것이 아니라 실제 데이터를 저장해야 한다.
 
@@ -13,3 +13,5 @@ GraphQL 에는 실제 데이터에 대한 타입이 존재하지 않기 때문�
 
 ### File Blob 을 입력받은뒤에 File 이 이동되면 Blob 읽기가 가능?
 Blob 이 가진 실제 데이터는 실제 파일을 가르키는 것일까? 아니면 Browser 어딘가에 저장된 실제 데이터를 가리키는 것일까?
+
+Blob 은 Browser 어딘가에 저장되는 실제 데이터를 가리킨다. 한번 Browser 에서 input 된 다음에는 영속적으로 사용할수 있다.
