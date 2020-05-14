@@ -5,4 +5,4 @@
 
 > Note: When using typeDefs, Apollo Server adds `scalar Upload` to your schema, so any existing declaration of `scalar Upload` in the type definitions should be removed. If you create your schema with `makeExecutableSchema` and pass it to ApolloServer constructor using the schema param, make sure to include `scalar Upload`.
 
-Apollo sever 에서 제공하는 `scalar upload` 활용
+Apollo sever 에서 제공하는 `scalar upload` 를 통해 blob 데이터를 서버에 전달할수 있다.
