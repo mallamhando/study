@@ -2,6 +2,7 @@
 * [Client](./Client.md)
 * [Link](./Link.md)
 * [Cache](./Cache.md)
+* [File](./File.md)
 
 # Tutorial
 * [tutorial](https://www.apollographql.com/docs/tutorial/introduction)
