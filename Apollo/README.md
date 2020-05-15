@@ -58,3 +58,6 @@
 ##### with redux
 * 기존 redux 로 동작하던 코드를 반드시 apollo client cache 로 변경할 필요가 없었다.
 * 프로젝트의 특성상 schema 의 일부 데이터는 변하기 쉬운 Object type 이었다. Query 와 schema 를 계속 수정하는 것보다 redux 를 사용하는 것이 간단했다.
+##### graphql API 변경
+* https://www.apollographql.com/docs/link/links/http/#passing-context-per-query
+* `client.query` 에 context 로 다른 API 를 입력하는 방식으로 graphql 의 API 를 변경할 수 있다.
