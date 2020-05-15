@@ -26,6 +26,7 @@
 1. component 에 데이터 전달
 
 ### server 의 데이터가 변경되었을 경우, cache update 방법
+* https://www.apollographql.com/docs/react/data/queries/#updating-cached-query-results
 * mutation 의 `refetchQueries` 옵션
 * query 의 `fetchPolich` 옵션
 * client 의 `resetStore` 함수는 cache 를 clear 한다.
