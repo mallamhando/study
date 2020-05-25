@@ -3,6 +3,9 @@
 * 현재는 BLE 만 지원
 * https://googlechrome.github.io/samples/web-bluetooth/
 
+### WiFi
+* https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
+
 ### Data Store
 ##### https://dexie.org/docs/Version/Version.stores()
 Never index properties containing images, movies or large (huge) strings. Store them in IndexedDB, yes! but just don’t index them!
