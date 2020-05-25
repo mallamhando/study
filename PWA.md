@@ -1,4 +1,7 @@
 # PWA
+### BT
+현재는 BLE 만 지원
+
 ### Data Store
 ##### https://dexie.org/docs/Version/Version.stores()
 Never index properties containing images, movies or large (huge) strings. Store them in IndexedDB, yes! but just don’t index them!
