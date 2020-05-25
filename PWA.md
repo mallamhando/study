@@ -1,8 +1,7 @@
 # PWA
 ### BT
 * 현재는 BLE 만 지원
-* 
-https://googlechrome.github.io/samples/web-bluetooth/
+* https://googlechrome.github.io/samples/web-bluetooth/
 
 ### Data Store
 ##### https://dexie.org/docs/Version/Version.stores()
