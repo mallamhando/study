@@ -54,5 +54,7 @@ Writing this because there have been some issues on github where people index im
 * offline 상태에서의 설치가 어렵다.
 * https://create-react-app.dev/docs/using-https-in-development/#windows-cmdexe
 ```
-set HTTPS=true&&npm start
+set HTTPS=true&&npm start   // Windows CMD
+
+($env:HTTPS = "true") -and (npm start)  // Windows PowerShell
 ```
