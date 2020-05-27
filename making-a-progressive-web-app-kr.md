@@ -3,25 +3,13 @@ id: making-a-progressive-web-app
 title: Making a Progressive Web App
 ---
 
+[원문](https://github.com/facebook/create-react-app/blob/master/docusaurus/docs/making-a-progressive-web-app.md)
+
 프로덕션 빌드에는 [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) 의
-첫번째 객체를 생성하기 위한 모든 툴을 포함하고 있습니다. 하지만 offline/cache-first 동작은 opt-in 에만 포함되어 있습니다.
+첫번째 객체를 생성하기 위한 모든 툴을 포함하고 있습니다. 하지만 **offline/cache-first 동작은 opt-in 에만** 포함되어 있습니다.
 기본으로, 빌드 동작은 service worker file 을 생성하지만 등록 과정을 수행하지는 않습니다.
-The production build has all the tools necessary to generate a first-class
-[Progressive Web App](https://developers.google.com/web/progressive-web-apps/),
-but **the offline/cache-first behavior is opt-in only**. By default,
-the build process will generate a service worker file, but it will not be
-registered, so it will not take control of your production web app.
 
-offline-first 을 위한 opt-in 을 위해서, [`src/index.js`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/src/index.js) 파일을 우선 살펴봐야 합니다. 
-In order to opt-in to the offline-first behavior, developers should look for the
-following in their [`src/index.js`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/src/index.js) file:
-
-```js
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://cra.link/PWA
-serviceWorker.unregister();
-```
+offline-first 을 위한 opt-in 을 위해서, [`src/index.js`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/src/index.js) 파일을 우선 살펴봐야 합니다.
 
 ```js
 // app 을 offline 에서 동작하고 로딩을 빠르게 하기 위해서는
@@ -33,24 +21,16 @@ serviceWorker.unregister();
 ```
 
 주석과 같이 `serviceWorker.unregister()` 를 `serviceWorker.register()` 로 바꾸면 service worker 를 사용할 수 있게 됩니다.
-As the comment states, switching `serviceWorker.unregister()` to
-`serviceWorker.register()` will opt you in to using the service worker.
 
-## Why Opt-in?
 ## 왜 Opt-in 인가?
 
 Offline-first Progressive Web App 은 기존 웹 페이지들보다 더 빠르고 더 안정적이며, 매력적인 모바일 경험을 제공합니다.
-Offline-first Progressive Web Apps are faster and more reliable than traditional web pages, and provide an engaging mobile experience:
 
 - 보든 정적 사이트 asset 들은 cache 되기 때문에 같은 페이지를 다시 방문했을 때의 네트워크 연결 상태(2G 또는 3G)와 상관없이 속도가 빨라집니다. 또한 업데이트 할 내용들는 background 로 다운로드 됩니다.
-- All static site assets are cached so that your page loads fast on subsequent visits, regardless of network connectivity (such as 2G or 3G). Updates are downloaded in the background.
 - 앱이 네트워크 상태, 심지어 offline 상태에서도 동작합니다. 사용자는 10,000 feet 높이에서도 지하철 속에서도 사용할수 있습니다.
-- Your app will work regardless of network state, even if offline. This means your users will be able to use your app at 10,000 feet and on the subway.
 - 모바일 기기에서, 앱은 home screen 에 icon 형태로 바로 더해질수 있습니다. app store 가 필요없습니다.
-- On mobile devices, your app can be added directly to the user's home screen, app icon and all. This eliminates the need for the app store.
 
 [can make debugging deployments more challenging](https://github.com/facebook/create-react-app/issues/2398) 와 같은 논쟁이 있었지만, 어쨌든 Create React App 2 로 시작합시다. service worker 는 opt-in 합니다.
-However, they [can make debugging deployments more challenging](https://github.com/facebook/create-react-app/issues/2398) so, starting with Create React App 2, service workers are opt-in.
 
 프로덕션 설정에 포함된 [`workbox-webpack-plugin`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin) 은 service worker 파일을 자동으로 생성합니다.
 service worker 는 모든 local asset 들을 미리 cache 하고, 배포된 가장 최신 버전으로 업데이트 합니다.
@@ -58,17 +38,7 @@ service worker 는 [navigation requests](https://developers.google.com/web/funda
 과
 local asset 들을 제어하기 위해
 [cache-first strategy](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) 를 사용해서 웹 앱을 안정적이지 않은 네트워크 상황에서도 항상 빠르게 동작할수 있도록 합니다.
-The [`workbox-webpack-plugin`](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
-is integrated into production configuration,
-and it will take care of generating a service worker file that will automatically
-precache all of your local assets and keep them up to date as you deploy updates.
-The service worker will use a [cache-first strategy](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network)
-for handling all requests for local assets, including
-[navigation requests](https://developers.google.com/web/fundamentals/primers/service-workers/high-performance-loading#first_what_are_navigation_requests)
-for your HTML, ensuring that your web app is consistently fast, even on a slow
-or unreliable network.
 
-## Offline-First Considerations
 ## Offline-First 고려 사항들
 
 If you do decide to opt-in to service worker registration, please take the
