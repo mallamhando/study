@@ -52,3 +52,7 @@ Writing this because there have been some issues on github where people index im
 * HTTPS 접속된 PWA 만 설치가 가능하다.
 * local server 의 SSR 의 경우 별도의 HTTPS 작업이 필요하다.
 * offline 상태에서의 설치가 어렵다.
+* https://create-react-app.dev/docs/using-https-in-development/#windows-cmdexe
+```
+set HTTPS=true&&npm start
+```
