@@ -58,3 +58,8 @@ set HTTPS=true&&npm start   // Windows CMD
 
 ($env:HTTPS = "true") -and (npm start)  // Windows PowerShell
 ```
+* local 에서 HTTPS 로 동작시킬수 있지만 SSL 인증오류가 발생하기 때문에 설치는 안된다.
+* github page 등을 통해 배포하면 https 경로로 앱을 동작시킬수 있고 설치가 가능하다.
+
+### CRA-making-a-progressive-web-app
+https://github.com/mallamhando/study/blob/master/making-a-progressive-web-app-kr.md
