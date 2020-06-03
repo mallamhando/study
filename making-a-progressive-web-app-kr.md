@@ -76,18 +76,9 @@ service worker 등록(register)에 동의했다면, 아래의 항목들을 고�
 
 ## Progressive Web App Metadata
 
-The default configuration includes a web app manifest located at
-[`public/manifest.json`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/public/manifest.json), that you can customize with
-details specific to your web application.
+웹앱을 표시하기 위한 기본 값들은 `public/manifest.json` 경로에 설정되어 있습니다.
+사용자가 웹앱을 바탕화면에 설치하면 나타나는 아이콘, 이름 및 앱을 사용할 때 사용할 브랜드 색을 `manifest.json` 파일로 설정할 수 있습니다.
 
-When a user adds a web app to their homescreen using Chrome or Firefox on
-Android, the metadata in [`manifest.json`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/public/manifest.json) determines what
-icons, names, and branding colors to use when the web app is displayed.
-[The Web App Manifest guide](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
-provides more context about what each field means, and how your customizations
-will affect your users' experience.
+[The Web App Manifest guide](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/) 에 어떻게 설정하는지에 대한 자세한 방법이 나와있으니 참조하십시요.
 
-Progressive web apps that have been added to the homescreen will load faster and
-work offline when there's an active service worker. That being said, the
-metadata from the web app manifest will still be used regardless of whether or
-not you opt-in to service worker registration.
+웹앱 manifest 정보는 service worker 가 없는 상황에서도 사용됩니다.
