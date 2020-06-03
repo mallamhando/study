@@ -43,7 +43,7 @@ local asset 들을 제어하기 위해
 
 service worker 등록(register)에 동의했다면, 아래의 항목들을 고려해야 합니다.
 
-1. 첫번째 caching 이 완료된 다음에는, [service worker 생명주기]((https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle)가 사용자에게 보여줄 업데이트된 내용들을 제어합니다.
+1. 첫번째 caching 이 완료된 다음에는, [service worker 생명주기](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle)가 사용자에게 보여줄 업데이트된 내용들을 제어합니다.
    [느리게 로딩되는 내용에서 발생하는 경쟁 상태](https://github.com/facebook/create-react-app/issues/3613#issuecomment-353467430) 를 방지하기 위해
    업데이트된 service worker 가 "[waiting](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#waiting)"
    상태를 유지하는 것이 기본 동작입니다.
