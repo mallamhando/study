@@ -61,3 +61,8 @@
 ##### graphql API 변경
 * https://www.apollographql.com/docs/link/links/http/#passing-context-per-query
 * `client.query` 에 context 로 다른 API 를 입력하는 방식으로 graphql 의 API 를 변경할 수 있다.
+##### schema 와 resolver
+* 실수로 schema 없이 resolver 만 작성한 부분이 있었는데 정상적으로 동작했다.
+* 버그인지 원래 컨셉인지 알수는 없다.
+##### indexedDB 와 API 는 다른 Query
+* indexedDB 와 API 는 다른 Query 를 사용해야 데이터 중첩 문제가 발생하지 않는다.
