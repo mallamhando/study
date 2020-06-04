@@ -67,3 +67,8 @@
 * 버그인지 원래 컨셉인지 알수는 없다.
 ##### indexedDB 와 API 는 다른 Query
 * indexedDB 와 API 는 다른 Query 를 사용해야 데이터 중첩 문제가 발생하지 않는다.
+##### Object type
+* [Scalar](Scalar.md) object-type 관련 툴을 쓰면 Object type 을 지원한다.
+* 하지만 object 내부의 쿼리 필드가 되지는 않는다.
+* Date 같은 일반적인 객체는 Object type 을 쓰는것이 효율적이다.
+* 필드의 형태가 고정하기 어려울때도 유용할 것으로 추정된다. 반대의 경우에는 graphql 의 장점을 최대한 발휘할수 있게 최대한 필드로 작성해야 한다.
