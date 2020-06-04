@@ -3,7 +3,7 @@
 * [Link](./Link.md)
 * [Cache](./Cache.md)
 * [File](./File.md)
-* [Scalar](./Scalar.md)
+* [Type](./Type.md)
 
 # Tutorial
 * [tutorial](https://www.apollographql.com/docs/tutorial/introduction)
