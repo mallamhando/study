@@ -31,3 +31,4 @@
 * https://community.jitsi.org/t/incorrect-response-mime-type/30439 wasm type 이 지정되어 있지 않기 때문에 에러 발생
 * https://github.com/webpack/webpack-dev-middleware/issues/229
 * https://github.com/mdn/webassembly-examples/issues/5
+* https://github.com/facebook/create-react-app/issues/4912
