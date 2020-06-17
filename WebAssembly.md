@@ -5,7 +5,7 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 ### 엠스크립튼
 * https://emscripten.org/index.html
 * https://github.com/emscripten-core/emscripten
-* https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
+* React 에서 엠스크립튼 결과물 사용 https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
 
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
@@ -14,4 +14,5 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 
 ### Hot Module Replacement
 * blazer C# 은 가능한 것으로 보임
-* webAssembly 자체로는 확인이 
+* webAssembly 자체로는 확인 X
+* webAssembly 의 목적이 DOM 변경이 아니기 때문에 HMR 이 없는것으로 추정됨
