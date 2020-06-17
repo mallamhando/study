@@ -6,6 +6,8 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 * https://emscripten.org/index.html
 * https://github.com/emscripten-core/emscripten
 * React 에서 엠스크립튼 결과물 사용 https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
+* `nodemon` 과 같이 자동적인 빌드 요소가 없음(또는 build bot 별도의 사용 필요?)
+* 목적이 단순히 C 를 webAssembly 로 변환하는 것
 
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
