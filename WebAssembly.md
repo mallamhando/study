@@ -23,3 +23,4 @@
 * https://medium.com/@marvinirwin/webassembly-react-and-create-react-app-8b73346c9b65
 * https://koala42.com/using-webassembly-in-your-reactjs-app/
 * https://www.telerik.com/blogs/using-webassembly-with-react
+* https://github.com/mbasso/react-wasm
