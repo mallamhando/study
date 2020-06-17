@@ -5,7 +5,6 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 ### 엠스크립튼
 * https://emscripten.org/index.html
 * https://github.com/emscripten-core/emscripten
-* React 에서 엠스크립튼 결과물 사용 https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
 * `nodemon` 과 같이 자동적인 빌드 요소가 없음(또는 build bot 별도의 사용 필요?)
 * 목적이 단순히 C 를 webAssembly 로 변환하는 것
 
@@ -18,3 +17,9 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 * blazer C# 은 가능한 것으로 보임
 * webAssembly 자체로는 확인 X
 * webAssembly 의 목적이 DOM 변경이 아니기 때문에 HMR 이 없는것으로 추정됨
+
+### with React
+* React 에서 엠스크립튼 결과물 사용 https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
+* https://medium.com/@marvinirwin/webassembly-react-and-create-react-app-8b73346c9b65
+* https://koala42.com/using-webassembly-in-your-reactjs-app/
+* https://www.telerik.com/blogs/using-webassembly-with-react
