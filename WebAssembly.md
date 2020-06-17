@@ -24,3 +24,4 @@
 * https://koala42.com/using-webassembly-in-your-reactjs-app/
 * https://www.telerik.com/blogs/using-webassembly-with-react
 * https://github.com/mbasso/react-wasm
+* https://github.com/rhysd/react-vim-wasm
