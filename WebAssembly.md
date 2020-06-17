@@ -25,3 +25,7 @@
 * https://www.telerik.com/blogs/using-webassembly-with-react
 * https://github.com/mbasso/react-wasm
 * https://github.com/rhysd/react-vim-wasm
+
+### react-wasm Test
+#### `TypeError: Incorrect response MIME type. Expected 'application/wasm'` 에러 발생
+* https://community.jitsi.org/t/incorrect-response-mime-type/30439 wasm type 이 지정되어 있지 않기 때문에 에러 발생
