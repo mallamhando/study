@@ -11,3 +11,7 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 * typeScript 를 webassembly 로 변경해주는 tool
 * https://blog.scottlogic.com/2019/06/14/add-webassembly-to-react-app.html
 * https://github.com/AssemblyScript/assemblyscript
+
+### Hot Module Replacement
+* blazer C# 은 가능한 것으로 보임
+* webAssembly 자체로는 확인이 
