@@ -5,6 +5,7 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 ### 엠스크립튼
 * https://emscripten.org/index.html
 * https://github.com/emscripten-core/emscripten
+* https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
 
 ### AssemblyScript
 * https://blog.scottlogic.com/2019/06/14/add-webassembly-to-react-app.html
