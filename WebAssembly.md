@@ -8,5 +8,6 @@ https://developer.mozilla.org/ko/docs/WebAssembly
 * https://github.com/wonism/TIL/blob/master/web-assembly/emscripten/README.md
 
 ### AssemblyScript
+* typeScript 를 webassembly 로 변경해주는 tool
 * https://blog.scottlogic.com/2019/06/14/add-webassembly-to-react-app.html
 * https://github.com/AssemblyScript/assemblyscript
