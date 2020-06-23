@@ -22,7 +22,9 @@ serviceWorker.unregister();
 
 주석과 같이 `serviceWorker.unregister()` 를 `serviceWorker.register()` 로 바꾸면 service worker 를 사용할 수 있게 됩니다.
 
-## 왜 Opt-in(사전동의) 인가?
+## 왜 Opt-in 인가?
+
+>> Opt-in 은 built-in 처럼 기본 장착된 기능이지만 option 으로 사용 / 미사용이 결정될수 있는 것을 말한다.
 
 Offline-first Progressive Web App 은 기존 웹 페이지들보다 더 빠르고 더 안정적이며, 매력적인 모바일 경험을 제공합니다.
 
