@@ -63,3 +63,13 @@ set HTTPS=true&&npm start   // Windows CMD
 
 ### CRA-making-a-progressive-web-app
 https://github.com/mallamhando/study/blob/master/making-a-progressive-web-app-kr.md
+
+### vs Flutter
+PC 게임 계속해서 진보된 성능을 보여주는 데에도 콘솔 게임은 지속적으로 자신의 영역을 유지하며 발전하고 있다.
+native app 이 계속해서 필요한 이유와 비슷하다.
+Flutter 는 PWA 보다 더 native 에 가까운 성능을 보여준다.
+사용자 경험을 극대화하고 싶다면 Flutter 또는 기존 native app 을 사용해야 하고, 생산성과 효율성이 중요하다면 PWA 가 유리할 것으로 보인다.
+
+##### Flutter Reference
+* https://engineering.linecorp.com/ko/blog/flutter-pros-and-cons/
+* https://brunch.co.kr/@tilltue/56
