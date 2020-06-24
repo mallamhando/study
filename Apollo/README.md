@@ -37,10 +37,11 @@
 GraphQL 책에서 Graph 이론에 대해 왜 설명하는것인지 궁금했다.
 사용 방법에 대해서만 설명하면 책이 지루해지기 때문은 아닐까 추측했다.
 
-실제로 GraphQL 을 사용하면서, 데이터와 데이터 사이의 연결 관계를 찾고자 하는 상황이 되서야 Graph 의 중요성을 알게되었다.
-
+하지만 실제로 GraphQL 을 사용하면서, 데이터와 데이터 사이의 연결 관계를 찾고자 하는 상황이 되면서 Graph 의 중요성을 알게되었다.
 GraphQL 을 도입하려고 했던 주요 이유는 사실 데이터 fetching 의 편리함 때문이었는데,
 Graph 방식의 강력하고 편리한 연결 기능에 더 놀라고 있다.
+
+Graph 가 GraphQL 의 핵심이다.
 
 ##### express 미들웨어 동작에 대한 이해가 부족해 발생한 실수
 * express.router 와 API error 핸들러를 express 미들웨어에 등록한 뒤에 apollo-server 를 등록하면 `/graphql` 경로에 대한 API error 가 발생
