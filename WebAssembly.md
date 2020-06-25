@@ -40,4 +40,5 @@
 #### react-app-rewired
 webpack extenstions 에 `wasm` 추가 필요
 * https://medium.com/@jsh901220/create-react-app%EC%97%90%EC%84%9C-eject%EC%82%AC%EC%9A%A9%EC%95%88%ED%95%98%EA%B8%B0-customize-cra-react-app-rewired-10a83522ace0
-https://webpack.js.org/configuration/resolve/#resolveextensions
+* https://webpack.js.org/configuration/resolve/#resolveextensions
+* https://github.com/pmrcunha/cra-wasm-test
