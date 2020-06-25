@@ -32,3 +32,7 @@
 * https://github.com/webpack/webpack-dev-middleware/issues/229
 * https://github.com/mdn/webassembly-examples/issues/5
 * https://github.com/facebook/create-react-app/issues/4912
+
+#### react-app-rewired
+webpack extenstions 에 `wasm` 추가 필요
+* https://medium.com/@jsh901220/create-react-app%EC%97%90%EC%84%9C-eject%EC%82%AC%EC%9A%A9%EC%95%88%ED%95%98%EA%B8%B0-customize-cra-react-app-rewired-10a83522ace0
