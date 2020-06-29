@@ -4,6 +4,9 @@
 
 ### 소스보안?
 wasm 파일은 웹구조에서 보호가 되는 것일까?
+##### wasm to c
+* https://webassembly.github.io/wabt/doc/wasm2c.1.html
+* https://github.com/WebAssembly/wabt
 
 ### 엠스크립튼
 * https://emscripten.org/index.html
