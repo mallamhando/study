@@ -25,6 +25,7 @@ light-server -s .
 * `/* eslint-disable */` 를 bind js 파일에 추가해야 에러 발생을 막을수 있다.
 
 ##### `webassembly.instantiate() expected magic word` 에러
+* react 는 wasm 파일을 번들화 할수 없기 때문에 wasm 파일을 public 폴더로 옮겨주어야 한다.
 
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
