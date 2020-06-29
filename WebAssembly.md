@@ -13,23 +13,9 @@
 browser 로 html 파일을 직접 읽으면 file protocol 로 열리기 때문에 wasm 파일 로딩이 안되고,
 http-server 에는 mime type 설정을 아직 지원하고 있지 않기 때문이다. (https://github.com/http-party/http-server/issues/35)
 
-##### package.json
-```JS
-{
-  "name": "emtest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "light-server -s ."
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "light-server": "^2.7.0"
-  }
-}
+```sh
+npm install -g light-server
+light-server -s .
 ```
 
 ### AssemblyScript
