@@ -21,6 +21,11 @@ npm install -g light-server
 light-server -s .
 ```
 
+#### 엠스크립튼 + React
+* `/* eslint-disable */` 를 bind js 파일에 추가해야 에러 발생을 막을수 있다.
+
+##### `webassembly.instantiate() expected magic word` 에러
+
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
 * https://blog.scottlogic.com/2019/06/14/add-webassembly-to-react-app.html
