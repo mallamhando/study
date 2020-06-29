@@ -2,6 +2,9 @@
 * https://developer.mozilla.org/ko/docs/WebAssembly
 * https://d2.naver.com/helloworld/8786166
 
+### 소스보안?
+wasm 파일은 웹구조에서 보호가 되는 것일까?
+
 ### 엠스크립튼
 * https://emscripten.org/index.html
 * https://github.com/emscripten-core/emscripten
