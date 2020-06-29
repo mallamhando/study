@@ -2,11 +2,16 @@
 * https://developer.mozilla.org/ko/docs/WebAssembly
 * https://d2.naver.com/helloworld/8786166
 
-### 소스보안?
+### 소스보안
 wasm 파일은 웹구조에서 보호가 되는 것일까?
+* https://www.reddit.com/r/WebAssembly/comments/8qmxjv/can_we_decompile_wasm_to_ccsource/
+* https://v8.dev/blog/wasm-decompile → decompile 되지만 거의 알아보기는 어렵다.
+
 ##### wasm to c
 * https://webassembly.github.io/wabt/doc/wasm2c.1.html
 * https://github.com/WebAssembly/wabt
+
+##### wasm 파일을 public 하지 않게 사용하기?
 
 ### 엠스크립튼
 * https://emscripten.org/index.html
