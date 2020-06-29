@@ -8,6 +8,30 @@
 * `nodemon` 과 같이 자동적인 빌드 요소가 없음(또는 build bot 별도의 사용 필요?)
 * 목적이 단순히 C 를 webAssembly 로 변환하는 것
 
+#### 엠스크립튼 테스트
+엠스크립튼의 결과물로 나오는 html 을 확인하려면 [light-server](https://github.com/txchen/light-server) 를 사용해야 한다.
+browser 로 html 파일을 직접 읽으면 file protocol 로 열리기 때문에 wasm 파일 로딩이 안되고,
+http-server 에는 mime type 설정을 아직 지원하고 있지 않기 때문이다. (https://github.com/http-party/http-server/issues/35)
+
+##### package.json
+```JS
+{
+  "name": "emtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "light-server -s ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "light-server": "^2.7.0"
+  }
+}
+```
+
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
 * https://blog.scottlogic.com/2019/06/14/add-webassembly-to-react-app.html
