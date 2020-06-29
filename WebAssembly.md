@@ -26,6 +26,14 @@ light-server -s .
 
 ##### `webassembly.instantiate() expected magic word` 에러
 * react 는 wasm 파일을 번들화 할수 없기 때문에 wasm 파일을 public 폴더로 옮겨주어야 한다.
+* bind js 의 wasm 파일 경로를 절대경로로 변경한다.
+```sh
+sed -i.old "s|$WASM_FILENAME|/$WASM_FILENAME|" ${JS}
+```
+* wasm 파일의 상대경로 위치를 설정하는 코드를 comment 한다.
+```sh
+sed -i.old "s|$WASM_LOOKUP|// $WASM_LOOKUP|" ${JS}
+``` 
 
 ### AssemblyScript
 * typeScript 를 webassembly 로 변경해주는 tool
