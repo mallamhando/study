@@ -14,6 +14,8 @@ wasm 파일은 웹구조에서 보호가 되는 것일까?
 * https://github.com/WebAssembly/wabt
 
 #### wasm 파일을 public 하지 않게 사용하기?
+* Rust 파일의 경우 public 폴더로 사용하지는 않는다.
+* 번들화 작업 추가로 필요
 
 ### 엠스크립튼
 * https://emscripten.org/index.html
@@ -23,7 +25,7 @@ wasm 파일은 웹구조에서 보호가 되는 것일까?
 
 #### 엠스크립튼 테스트
 엠스크립튼의 결과물로 나오는 html 을 확인하려면 [light-server](https://github.com/txchen/light-server) 를 사용해야 한다.
-browser 로 html 파일을 직접 읽으면 file protocol 로 열리기 때문에 wasm 파일 로딩이 안되고,
+browser 로 html 파일을 직접 읽으면 file protocol 로 열리기 때문에 XHP wasm 파일 로딩이 안되고,
 http-server 에는 mime type 설정을 아직 지원하고 있지 않기 때문이다. (https://github.com/http-party/http-server/issues/35)
 
 ```sh
