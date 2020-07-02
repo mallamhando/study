@@ -1,3 +1,10 @@
+### F/W 개발자에게 필요한 WebAssembly
+웹앱과 펌웨어 소스를 공유할 수 있어 중복 코딩을 줄일수 있다.
+특히 그래픽과 관련된 c 라이브러리를 쉽게 웹앱과 펌웨어 또는 PC 에서 동시에 사용할 수 있게 된다.
+고객에게 시뮬레이션 기능을 제공하여 도메인 코드의 빠른 검증이 가능해진다.
+프로토타입 언어인 JS 를 이용하여 목업과 테스트 코드를 빠르게 만들수 있어 테스트 주도 개발이 쉬어진다.
+
+### 기타
 * [언제 웹어셈블리를 사용하는 게 좋은가](https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%99%80%EC%9D%98-%EB%B9%84%EA%B5%90-%EC%96%B8%EC%A0%9C-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%8C-%EC%A2%8B%EC%9D%80%EA%B0%80-cf48a576ca3)
 * https://developer.mozilla.org/ko/docs/WebAssembly
 * https://d2.naver.com/helloworld/8786166
