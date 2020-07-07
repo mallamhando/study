@@ -6,7 +6,11 @@
 
 프로토타입 언어인 JS 를 이용하여 목업과 테스트 코드를 빠르게 만들수 있어 테스트 주도 개발이 쉬어진다.
 
+WebAssembly 가 ARM-M0 수준의 언어까지 지원한다면,
 Rust, Typescript, JS 와 같은 언어로 새로운 기능을 시뮬레이션 구현하고 WebAssembly 로 변환한 뒤에 F/W 에서 라이브러리로 활용할수 있다.
+
+하지만 아직 Arch64 ARM 까지만 지원하고 있는 중이다.
+https://medium.com/wasmer/running-webassembly-on-arm-7d365ed0e50c
 
 ### 기타
 * [언제 웹어셈블리를 사용하는 게 좋은가](https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%99%80%EC%9D%98-%EB%B9%84%EA%B5%90-%EC%96%B8%EC%A0%9C-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%8C-%EC%A2%8B%EC%9D%80%EA%B0%80-cf48a576ca3)
