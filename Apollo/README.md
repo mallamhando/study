@@ -33,6 +33,17 @@
 * client 의 `resetStore` 함수는 cache 를 clear 한다.
 
 # 실사용 후기
+##### type resolver
+type resolver 로 return 되는 필드가 parent 의 필드와 겹쳐질 경우,
+parent 의 필드의 내용이 완전히 지워지고 type resolver 의 내용으로 채워지는 것이 아니라
+parent 필드의 내용이 유지되는 상태에서 object assign 방식으로 합쳐진다.
+
+parent 필드와 type resolver 의 이름이 겹쳐지지 않게 parent 필드,
+보통 DB 의 필드를 구성하는 요소의 이름을 type resolver 의 type 이름과 다르게 하는것이 낫다.
+
+parent 필드에서 지워져야할 부분을 undefined 로 설정하는 방법도 가능할것 같고,
+더 나은 방법은 일단 확인되지 않는다.
+
 ##### 핵심은 Graph
 GraphQL 책에서 Graph 이론에 대해 왜 설명하는것인지 궁금했다.
 사용 방법에 대해서만 설명하면 책이 지루해지기 때문은 아닐까 추측했다.
