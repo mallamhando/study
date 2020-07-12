@@ -12,16 +12,25 @@ F/W 시뮬레이션으로 가장 유명한 아이템중 하나는 아두이노�
 
 구글 테스트가 한정된 입력과 출력의 인터페이스를 가지고 있는 것과 다르다.
 
-WebAssembly 가 ARM-M0 수준의 언어까지 지원한다면,
-Rust, Typescript, JS 와 같은 언어로 새로운 기능을 시뮬레이션 구현하고 WebAssembly 로 변환한 뒤에 F/W 에서 라이브러리로 활용할수 있다.
+텍스트 기반의 테스트는 높은 수준의 목업을 필요로 한다.
 
-하지만 아직 Arch64 ARM 까지만 지원하고 있는 중이다.
-https://medium.com/wasmer/running-webassembly-on-arm-7d365ed0e50c
+하지만 기능을 구현할때 목업을 완벽히 알고 시작하기는 어렵다. 테스트를 위한 목업은 어떻게 테스트 할것인가?
+
+눈으로 보이는 입력을 사용하는 목업 제작과, 텍스트 기반의 목업 제작은 다르다.
+
+##### Rust
+이미 C 로 개발되어 있는 라이브러리를 활용하는 것이 아니라면,
+Rust 를 이용하여 개발하는 것이 낫다.
+
+Rust 는 이미 많은 embeded 시스템에 적용되었다. [n52832-HAL](https://github.com/nrf-rs/nrf-hal)
+
+Rust 를 WebAssembly 로 만들어 web 테스트 목업과 함께 embeded 시스템에 바로 적용해서 사용하는 것이 가장 빠른 방법이다.
 
 ### 기타
 * [언제 웹어셈블리를 사용하는 게 좋은가](https://engineering.huiseoul.com/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%9E%91%EB%8F%99%ED%95%98%EB%8A%94%EA%B0%80-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%99%80%EC%9D%98-%EB%B9%84%EA%B5%90-%EC%96%B8%EC%A0%9C-%EC%9B%B9%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%8C-%EC%A2%8B%EC%9D%80%EA%B0%80-cf48a576ca3)
 * https://developer.mozilla.org/ko/docs/WebAssembly
 * https://d2.naver.com/helloworld/8786166
+* WebAssembly ARM-Arch64 지원 https://medium.com/wasmer/running-webassembly-on-arm-7d365ed0e50c
 
 ### 소스보안
 wasm 파일은 웹구조에서 보호가 되는 것일까?
