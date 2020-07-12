@@ -24,6 +24,8 @@ Rust 를 이용하여 개발하는 것이 낫다.
 
 Rust 는 이미 많은 embeded 시스템에 적용되었다. [n52832-HAL](https://github.com/nrf-rs/nrf-hal)
 
+Linux kernel 에 Rust 코드가 들어갈 날이 멀지 않았다. https://www.phoronix.com/scan.php?page=news_item&px=Torvalds-Rust-Kernel-K-Build
+
 Rust 를 WebAssembly 로 만들어 web 테스트 목업과 함께 embeded 시스템에 바로 적용해서 사용하는 것이 가장 빠른 방법이다.
 
 ### 기타
