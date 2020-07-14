@@ -23,6 +23,8 @@ Rust 는 리소스에 대한 소유권을 명시하고 컴파일 단계에서 �
 ### 참고자료
 http://hacks.mozilla.or.kr/2015/06/diving-into-rust-for-the-first-time/
 
+https://rust-kr.org/
+
 https://rinthel.github.io/rust-lang-book-ko/
 
 https://github.com/phil-opp/blog_os
