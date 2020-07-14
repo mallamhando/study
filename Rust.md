@@ -1,4 +1,5 @@
 # Rust
+http://hacks.mozilla.or.kr/2015/06/diving-into-rust-for-the-first-time/
 
 https://rinthel.github.io/rust-lang-book-ko/
 
