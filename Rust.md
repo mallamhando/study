@@ -21,6 +21,8 @@ Rust 는 리소스에 대한 소유권을 명시하고 컴파일 단계에서 �
 기존 언어들이 GC 를 사용하면서 발생하는 비효율을 제거하고 안정성과 속도를 얻었다.
 
 ### 참고자료
+https://tourofrust.com/00_ko.html
+
 http://hacks.mozilla.or.kr/2015/06/diving-into-rust-for-the-first-time/
 
 https://rust-kr.org/
