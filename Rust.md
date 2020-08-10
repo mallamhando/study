@@ -9,7 +9,7 @@ embeded system 엔지니어에게 Rust 는 더이상 선택 사항이 아니게 
 
 많은 embeded system 관련 신기술들이 곧 Rust 로 작성되서 나타날 것이기 때문이다.
 
-### Rust 의 장점
+## Rust 의 장점
 Rust 에 성능을 높이기 위한 마법 기능이 있는 것이 아니다.
 
 하지만 Rust 는 C 로 최적화된 네이티브 코드와 비슷한 성능으로 동작할 수 있다.
@@ -20,7 +20,14 @@ Rust 는 리소스에 대한 소유권을 명시하고 컴파일 단계에서 �
 
 기존 언어들이 GC 를 사용하면서 발생하는 비효율을 제거하고 안정성과 속도를 얻었다.
 
-### 참고자료
+## https://rinthel.github.io/rust-lang-book-ko/ 를 읽고
+독해력이 부족한 나를 위해 친절하게 번역해 놓지는 않았다.
+
+C 와 Javascript 를 생각하면서 읽었는데 C++ 이 나온다.
+
+대충읽었다. 제목만 읽는 경우도 많았다. 어차피 다 까먹을거라 단순히 단어들만 머리속에서 익숙해지는게 더 나아보였다.
+
+## 참고자료
 https://tourofrust.com/00_ko.html
 
 http://hacks.mozilla.or.kr/2015/06/diving-into-rust-for-the-first-time/
