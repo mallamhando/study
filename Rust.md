@@ -39,6 +39,7 @@ C 와 Javascript 를 생각하면서 읽었는데 C++ 이 나온다.
 메모리 관리를 컴파일 과정에서만 수행하는 Rust 가 c 의 한계를 극복하게 해준다.
 
 * https://ldpreload.com/p/kernel-modules-in-rust-lssna2019.pdf
+* https://linuxplumbersconf.org/event/7/sessions/84/#20200827
 
 ## 참고자료
 https://tourofrust.com/00_ko.html
