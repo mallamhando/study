@@ -1,9 +1,6 @@
----
-id: making-a-progressive-web-app
-title: Making a Progressive Web App
----
-
 [원문](https://github.com/facebook/create-react-app/blob/master/docusaurus/docs/making-a-progressive-web-app.md)
+
+# Making a progressive web app(kr)
 
 프로덕션 빌드에는 [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) 의
 첫번째 객체를 생성하기 위한 모든 툴을 포함하고 있습니다. 하지만 **offline/cache-first 동작은 opt-in(옵션으로 추가) 에만** 포함되어 있습니다.
