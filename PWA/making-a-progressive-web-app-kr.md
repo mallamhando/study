@@ -6,7 +6,7 @@ title: Making a Progressive Web App
 [원문](https://github.com/facebook/create-react-app/blob/master/docusaurus/docs/making-a-progressive-web-app.md)
 
 프로덕션 빌드에는 [Progressive Web App](https://developers.google.com/web/progressive-web-apps/) 의
-첫번째 객체를 생성하기 위한 모든 툴을 포함하고 있습니다. 하지만 **offline/cache-first 동작은 opt-in(사전동의) 에만** 포함되어 있습니다.
+첫번째 객체를 생성하기 위한 모든 툴을 포함하고 있습니다. 하지만 **offline/cache-first 동작은 opt-in(옵션으로 추가) 에만** 포함되어 있습니다.
 기본으로, 빌드 동작은 service worker file 을 생성하지만 등록 과정을 수행하지는 않습니다.
 
 offline-first 을 위한 opt-in 을 위해서, [`src/index.js`](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/src/index.js) 파일을 우선 살펴봐야 합니다.
@@ -24,7 +24,7 @@ serviceWorker.unregister();
 
 ## 왜 Opt-in 인가?
 
->> Opt-in 은 built-in 처럼 기본 장착된 기능이지만 option 으로 사용 / 미사용이 결정될수 있는 것을 말한다.
+> Opt-in 은 built-in 처럼 기본 장착된 기능이지만 option 으로 사용 / 미사용이 결정될수 있는 것을 말한다.
 
 Offline-first Progressive Web App 은 기존 웹 페이지들보다 더 빠르고 더 안정적이며, 매력적인 모바일 경험을 제공합니다.
 
