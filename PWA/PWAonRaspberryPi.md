@@ -38,3 +38,7 @@ PWA 는 Chrome 74 이상에서 설치된다. Raspbian 9 까지는 chrome 72, Ras
   * app-id 불필요
 * [x] url 에 경로와 query 추가하여 실행
   * main 경로를 처음 접속하지 않으면 sub 경로로 바로 시작할수 없음
+
+## 후기
+PWA 가 title bar 하나를 제거하는 것도 어렵다는 것을 알았을때 PWA 는 아직 멀었다고 생각했다.
+하지만 electron.js 와 아무문제 없이 바로 결합되는 것을 확인했을때, PWA 는 정말 awesome 하다고 느껴졌다.
