@@ -8,6 +8,7 @@
 # Tutorial
 * [tutorial](https://www.apollographql.com/docs/tutorial/introduction)
 * [play ground](https://www.graphqlbin.com)
+* [AWS IoT Things Graph](https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html)
 
 # 추가 자료
 * [GraphQL with indexedDB](https://codeburst.io/large-offline-datasets-with-apollo-client-c19c987e4a98)
