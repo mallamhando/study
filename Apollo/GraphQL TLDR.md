@@ -46,4 +46,4 @@ mutation playScene($id: ID!) {
 
 ## GraphQL 사용을 위한 라이브러리
 * GraphQL 은 단순히 규약이기 때문에 라이브러리를 원하는 데로 사용 가능
-* Apollo, Reray(facebook)
+* Apollo, Relay(facebook)
