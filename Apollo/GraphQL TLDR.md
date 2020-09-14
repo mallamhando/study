@@ -41,6 +41,101 @@ mutation playScene($id: ID!) {
 }
 ```
 
+### schema 를 보고 query 명령어 만드는 방법
+```graphql
+type Query {
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String
+  photo: Photo
+}
+
+type Photo {
+  id: ID!
+  name: String
+  url: String
+}
+```
+
+위와 같이 User type 밑에 Photo type 이 있을때, 우선 명령어 부터 복사
+
+```graphql
+query {
+  user: User
+}
+```
+
+':' 이후 필드 type 이 String, Boolean, Int, ID 등의 기본형이 아닐 경우 type 선언을 찾아서 복사
+
+```graphql
+query {
+  user: type User {
+    id: ID!
+    name: String
+    photo: Photo
+  }
+}
+```
+
+`{` 이전부터 `:` 까지를 삭제
+
+```graphql
+query {
+  user {
+    id: ID!
+    name: String
+    photo: Photo
+  }
+}
+```
+
+String, Boolean, Int, ID 등의 기본형 type 들도 삭제
+
+```graphql
+query {
+  user {
+    id
+    name
+    photo: Photo
+  }
+}
+```
+
+기본형이 아닌 Photo 의 type 선언을 찾아 복사
+
+```graphql
+query {
+  user {
+    id
+    name
+    photo: type Photo {
+      id: ID!
+      name: String
+      url: String
+    }
+  }
+}
+```
+
+user 의 각 항목을 정리했던 것처럼 `{` 이전부터 `:` 까지를 삭제하고 기본형 type 선언도 삭제하면 
+
+```graphql
+query {
+  user {
+    id
+    name
+    photo {
+      id
+      name
+      url
+    }
+  }
+}
+```
+
 ## resolver
 * GraphQL API 하고 실제 DB 하고 연결해주는 작업
 
