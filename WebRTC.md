@@ -1,6 +1,12 @@
 # WebRTC
 https://developer.mozilla.org/ko/docs/Web/API/WebRTC_API
 
+## Diary
+### 2020-09-23
+어려운 점은 설명이 너무 장황하다는 것이다.
+문서의 길이가 너무 길고 읽어보면 기초적인것을 설명하고 있다.
+내가 원하는 부분을 딱 맞게 찾기가 어렵다.
+
 ## 참고자료
 * https://github.com/node-webrtc/node-webrtc
 * https://github.com/medooze/media-server-node
