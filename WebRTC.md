@@ -1,6 +1,10 @@
 # WebRTC
 https://developer.mozilla.org/ko/docs/Web/API/WebRTC_API
 
+## 참고자료
+* https://github.com/node-webrtc/node-webrtc
+* https://github.com/medooze/media-server-node
+
 ## 용어 설명
 ### ICE
 브라우저가 peer 연결을 위해 사용하는 framework, ICE 는 STUN 또는 TURN server 를 사용한다.
