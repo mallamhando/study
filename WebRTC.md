@@ -2,6 +2,13 @@
 https://developer.mozilla.org/ko/docs/Web/API/WebRTC_API
 
 ## Diary
+### 2020-09-24
+원하는 기능을 타겟팅 하면서 알아야 하는 지식의 범위를 좁히고 있다.
+오히려 기술 전체에 대한 그림이 더 잘보인다.
+
+새로운 기술을 시작하는 것은 더 많은 에너지를 소모하게 한다.
+더 효율적인 방법을 찾도록 계속 노력해야 한다.
+
 ### 2020-09-23
 어려운 점은 설명이 너무 장황하다는 것이다.
 문서의 길이가 너무 길고 읽어보면 기초적인것을 설명하고 있다.
@@ -18,6 +25,7 @@ WebRTC 가 될경우 내가 원하는 Serverless IoT 를 좀 더 쉽게 구현�
 ## 참고자료
 * https://github.com/node-webrtc/node-webrtc
 * https://github.com/medooze/media-server-node
+* https://webrtc.github.io/samples/
 
 ## 용어 설명
 ### ICE
