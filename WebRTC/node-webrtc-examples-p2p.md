@@ -56,6 +56,8 @@ function mount(app, connectionManager, prefix = '') {
 ```
 
 ### Client
+Server 와 마찬가지로 peer 연결 메소드가 있는 객체를 선언하는 것 이외에 특별한 동작이 없다.
+
 ```JS
 // examples > broadcaster > client.js
 createExample('broadcaster', description, { beforeAnswer });
@@ -80,7 +82,18 @@ class ConnectionClient {
 ```
 
 ## Start
+Client 의 요청으로 peer 연결 동작이 시작된다.
+
 ### Client
+#### 1. Server 에 connection 요청하고 id 받음
+#### 2. 수신된 peer 에 내 peer 정보를 설정하여 서버에 전달
+1. 새로운 peer 생성
+1. local peer 에 수신된 remote peer 를 설정
+1. application 설정 media 를 `addTrack` 으로 peer 에 설정
+1. answer 를 생성
+1. 서버에 생성된 peer 의 local description 전달
+1. peer close 를 위해 보관
+
 ```JS
 // lib > browser > example.js
 function createExample(name, description, options) {
@@ -146,7 +159,8 @@ class ConnectionClient {
 ```
 
 ### Server
-#### Post connect
+#### 1. Post connect
+Client 의 peer 연결 요청을 수신한다.
 ```JS
 // lib > server > rest > connectionsapi.js
 function mount(app, connectionManager, prefix = '') {
