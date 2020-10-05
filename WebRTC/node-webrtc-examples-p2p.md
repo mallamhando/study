@@ -84,6 +84,7 @@ class ConnectionClient {
 ## Start
 ### 1. \[Client] server peer 요청
 Client 가 Server 에 peer 연결을 요청한다.
+
 ```JS
 // lib > browser > example.js
 function createExample(name, description, options) {
@@ -108,8 +109,9 @@ class ConnectionClient {
     ...
 ```
 
-### 2. \[Server] peer 생성
-Client 의 peer 연결 요청을 수신한다.
+### 2. \[Server] peer 연결 요청 수신
+Server 가 client 의 peer 연결 요청을 수신하고 peer 생성 동작을 시작한다.
+
 ```JS
 // lib > server > rest > connectionsapi.js
 function mount(app, connectionManager, prefix = '') {
@@ -129,7 +131,13 @@ class WebRtcConnectionManager {
       ...
     ...
 }
+```
 
+### 3. \[Server] UUID 생성하고 close listener 와 peer 관리용 Map 에 등록
+Peer id 를 위한 UUID 를 만들고 close listener 를 등록한다.
+Server 전체의 peer 를 관리하는 Map 객체에 id 에 맞는 peer 를 등록 시킨다.
+
+```JS
 // lib > server > connections > connectionmanager.js
 class ConnectionManager {
     ...
@@ -142,31 +150,34 @@ class ConnectionManager {
       // 2. Add the Connection to the Map.
       ...
 }
+```
 
+### 4. \[Server] peer 생성
+```JS
 // lib > server > connections > webrtcconnection.js
 class WebRtcConnection extends Connection {
   constructor(id, options = {}) {
     ...
-   // peer 생성
     const peerConnection = new RTCPeerConnection({
       sdpSemantics: 'unified-plan'
     });
-    // doOffer 전 option 전처리
+```
+
+### 5. \[Server] 비지니스 로직을 peer 에 등록
+미디어 또는 데이터 전송을 위한 비지니스 로직을 peer 에 등록시킨다.
+
+```JS
+// lib > server > connections > webrtcconnection.js
     beforeOffer(peerConnection);
-    ...
+```
+
+### 6. \[Server] ice 연결
+ICE server 에 연결한다. 연결이 안될경우 다시 시도할수 있는 재연결 로직이 있다.
+
+```JS
+// lib > server > connections > webrtcconnection.js
     peerConnection.addEventListener('iceconnectionstatechange', onIceConnectionStateChange);
     const onIceConnectionStateChange = () => { // ice 재연결 callback
-    ...
-    Object.defineProperties(this, {
-      iceConnectionState: // peerConnection.iceConnectionState;
-      ...
-      localDescription: // descriptionToJSON(peerConnection.localDescription, true);
-      ...
-      remoteDescription: // descriptionToJSON(peerConnection.remoteDescription);
-      ...
-      signalingState: // peerConnection.signalingState;
-      ...
-}
 
 // lib > server > connections > webrtcconnectionmanager.js
 class WebRtcConnectionManager {
@@ -188,6 +199,24 @@ class WebRtcConnection extends Connection {
         await waitUntilIceGatheringStateComplete(peerConnection, options);
     ...
 }
+```
+
+### 7. \[Server] peer 전달을 위한 description 구성하여 client 에 전달
+Client 에 peer 를 전달하기 위한 peer description 을 생성한다. toJSON 프로토타입을 사용한다.
+
+```JS
+// lib > server > connections > webrtcconnection.js
+    ...
+    Object.defineProperties(this, {
+      iceConnectionState: // peerConnection.iceConnectionState;
+      ...
+      localDescription: // descriptionToJSON(peerConnection.localDescription, true);
+      ...
+      remoteDescription: // descriptionToJSON(peerConnection.remoteDescription);
+      ...
+      signalingState: // peerConnection.signalingState;
+      ...
+}
 
 // lib > server > connections > webrtcconnection.js
 class WebRtcConnection extends Connection {
@@ -204,65 +233,50 @@ class WebRtcConnection extends Connection {
     };
     ...
 }
+
+// lib > server > rest > connectionsapi.js
+function mount(app, connectionManager, prefix = '') {
+  ...
+  app.post(`${prefix}/connections`, async (req, res) => {
+    try {
+      const connection = await connectionManager.createConnection();
+      res.send(connection);
+      ...
+  });
+  ...
 ```
 
-### 3. \[Client] peer 수신
+### 8. \[Client] peer 수신
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
       const remotePeerConnection = await response1.json();
       const { id } = remotePeerConnection;
-    ...
 ```
 
-### 4. \[Client] 새로운 local peer 생성한다.
+### 9. \[Client] 새로운 local peer 생성한다.
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
       const localPeerConnection = new RTCPeerConnection({
         sdpSemantics: 'unified-plan'
       });
-      ...
-
 ```
 
-### 5. \[Client] local peer 의 remote peer 로 수신된 peer 를 등록한다.
+### 10. \[Client] local peer 의 remote peer 로 수신된 peer 를 등록한다.
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
-      try {
         await localPeerConnection.setRemoteDescription(remotePeerConnection.localDescription);
-      ...
-}
 ```
 
-### 6. \[Client] 비지니스 로직(미디어, 파일 전송 데이터 등)을 local peer 에 등록한다.
+### 11. \[Client] 비지니스 로직(미디어, 파일 전송 데이터 등)을 local peer 에 등록한다.
 
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
         await beforeAnswer(localPeerConnection);
-      ...
-}
 ```
 
-### 7. \[Client] 비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
+### 12. \[Client] 비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
         const originalAnswer = await localPeerConnection.createAnswer();
 
         const updatedAnswer = new RTCSessionDescription({
@@ -270,19 +284,11 @@ class ConnectionClient {
           sdp: stereo ? enableStereoOpus(originalAnswer.sdp) : originalAnswer.sdp
         });
         await localPeerConnection.setLocalDescription(updatedAnswer);
-        ...
-    };
-  }
-}
 ```
 
-### 8. \[Client] 서버에 local peer description 전송
+### 13. \[Client] 서버에 local peer description 전송
 ```JS
 // lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
         await fetch(`${host}${prefix}/connections/${id}/remote-description`, {
           method: 'POST',
           body: JSON.stringify(localPeerConnection.localDescription),
@@ -290,13 +296,12 @@ class ConnectionClient {
             'Content-Type': 'application/json'
           }
         });
-        ...
-    };
-  }
-}
 ```
 
-### 9. \[Server] Post remote-description
+### 14. \[Server] Client 의 peer 정보를 수신
+Client 의 peer 를 수신하고 server peer 에 remote peer 로 등록한다.
+상호간의 등록이 완료되면 peer 의 비지니스 로직이 동작을 시작한다.
+
 ```JS
 // lib > server > rest > connectionsapi.js
 function mount(app, connectionManager, prefix = '') {
@@ -321,7 +326,7 @@ class WebRtcConnection extends Connection {
 }
 ```
 
-### 10. \[Client] peer close 를 위해 보관
+### 15. \[Client] peer close 를 위해 보관
 ```JS
 // lib > client > index.js
 class ConnectionClient {
