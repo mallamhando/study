@@ -2,8 +2,10 @@ https://github.com/node-webrtc/node-webrtc-examples#architecture
 
 # node-webrtc-examples 의 peer signaling 분석
 
-## Server Peer Singaling
-### Init
+## Init
+### Server
+Peer 연결 관리 객체를 생성하고 API 와 연결한다. Peer 를 저장하기 위한 Map 객체를 생성하고 메소드를 연결하는 것 이외에 특별한 초기 작업은 없다.
+
 ```JS
 // index.js
 ...
@@ -53,7 +55,97 @@ function mount(app, connectionManager, prefix = '') {
 }
 ```
 
-### Start
+### Client
+```JS
+// examples > broadcaster > client.js
+createExample('broadcaster', description, { beforeAnswer });
+
+// lib > browser > example.js
+function createExample(name, description, options) {
+  ...
+  const connectionClient = new ConnectionClient();
+  ...
+}
+
+// lib > client > index.js
+class ConnectionClient {
+  constructor(options = {}) {
+    options = {
+      RTCPeerConnection: DefaultRTCPeerConnection,
+      ...
+    };
+    ...
+    this.createConnection = async (options = {}) => {
+    ...
+```
+
+## Start
+### Client
+```JS
+// lib > browser > example.js
+function createExample(name, description, options) {
+  ...
+  createStartStopButton(async () => {
+    peerConnection = await connectionClient.createConnection(options);
+    window.peerConnection = peerConnection;
+  ...
+}
+
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
+      // Server 에 connection 요청하고 id 받음
+      const response1 = await fetch(`${host}${prefix}/connections`, {
+        method: 'POST'
+      });
+
+      const remotePeerConnection = await response1.json();
+      const { id } = remotePeerConnection;
+
+      // 새로운 peer 생성
+      const localPeerConnection = new RTCPeerConnection({
+        sdpSemantics: 'unified-plan'
+      });
+
+      ...
+
+      try {
+        // local peer 에 수신된 remote peer 를 설정
+        await localPeerConnection.setRemoteDescription(remotePeerConnection.localDescription);
+
+        // application 설정 media 를 `addTrack` 으로 peer 에 설정
+        await beforeAnswer(localPeerConnection);
+
+        // answer 를 생성
+        const originalAnswer = await localPeerConnection.createAnswer();
+
+        // 추가적인 answer 설정
+        const updatedAnswer = new RTCSessionDescription({
+          type: 'answer',
+          sdp: stereo ? enableStereoOpus(originalAnswer.sdp) : originalAnswer.sdp
+        });
+        await localPeerConnection.setLocalDescription(updatedAnswer);
+
+        // 서버에 생성된 peer 의 local description 전달
+        await fetch(`${host}${prefix}/connections/${id}/remote-description`, {
+          method: 'POST',
+          body: JSON.stringify(localPeerConnection.localDescription),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        // peer close 를 위해 보관
+        return localPeerConnection;
+        ...
+    };
+  }
+}
+```
+
+### Server
 #### Post connect
 ```JS
 // lib > server > rest > connectionsapi.js
@@ -174,7 +266,9 @@ class WebRtcConnection extends Connection {
     ...
 }
 ```
-### Stop
+
+## Stop
+### Server
 ```JS
 // lib > server > connections > webrtcconnection.js
 class WebRtcConnection extends Connection {
@@ -189,97 +283,7 @@ class WebRtcConnection extends Connection {
 }
 ```
 
-## Client Peer Signaling
-### Init
-```JS
-// examples > broadcaster > client.js
-createExample('broadcaster', description, { beforeAnswer });
-
-// lib > browser > example.js
-function createExample(name, description, options) {
-  ...
-  const connectionClient = new ConnectionClient();
-  ...
-}
-
-// lib > client > index.js
-class ConnectionClient {
-  constructor(options = {}) {
-    options = {
-      RTCPeerConnection: DefaultRTCPeerConnection,
-      ...
-    };
-    ...
-    this.createConnection = async (options = {}) => {
-    ...
-```
-
-### Start
-```JS
-// lib > browser > example.js
-function createExample(name, description, options) {
-  ...
-  createStartStopButton(async () => {
-    peerConnection = await connectionClient.createConnection(options);
-    window.peerConnection = peerConnection;
-  ...
-}
-
-// lib > client > index.js
-class ConnectionClient {
-    ...
-    this.createConnection = async (options = {}) => {
-      ...
-      // Server 에 connection 요청하고 id 받음
-      const response1 = await fetch(`${host}${prefix}/connections`, {
-        method: 'POST'
-      });
-
-      const remotePeerConnection = await response1.json();
-      const { id } = remotePeerConnection;
-
-      // 새로운 peer 생성
-      const localPeerConnection = new RTCPeerConnection({
-        sdpSemantics: 'unified-plan'
-      });
-
-      ...
-
-      try {
-        // local peer 에 수신된 remote peer 를 설정
-        await localPeerConnection.setRemoteDescription(remotePeerConnection.localDescription);
-
-        // application 설정 media 를 `addTrack` 으로 peer 에 설정
-        await beforeAnswer(localPeerConnection);
-
-        // answer 를 생성
-        const originalAnswer = await localPeerConnection.createAnswer();
-
-        // 추가적인 answer 설정
-        const updatedAnswer = new RTCSessionDescription({
-          type: 'answer',
-          sdp: stereo ? enableStereoOpus(originalAnswer.sdp) : originalAnswer.sdp
-        });
-        await localPeerConnection.setLocalDescription(updatedAnswer);
-
-        // 서버에 생성된 peer 의 local description 전달
-        await fetch(`${host}${prefix}/connections/${id}/remote-description`, {
-          method: 'POST',
-          body: JSON.stringify(localPeerConnection.localDescription),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        // peer close 를 위해 보관
-        return localPeerConnection;
-        ...
-    };
-  }
-}
-```
-
-### Stop
+### Client
 ```JS
 // lib > browser > example.js
 function createExample(name, description, options) {
