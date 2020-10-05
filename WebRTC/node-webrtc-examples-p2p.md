@@ -86,13 +86,6 @@ Client 의 요청으로 peer 연결 동작이 시작된다.
 
 ### Client
 #### 1. Server 에 connection 요청하고 id 받음
-#### 2. 수신된 peer 에 내 peer 정보를 설정하여 서버에 전달
-1. 새로운 peer 생성
-1. local peer 에 수신된 remote peer 를 설정
-1. application 설정 media 를 `addTrack` 으로 peer 에 설정
-1. answer 를 생성
-1. 서버에 생성된 peer 의 local description 전달
-1. peer close 를 위해 보관
 
 ```JS
 // lib > browser > example.js
@@ -116,21 +109,58 @@ class ConnectionClient {
 
       const remotePeerConnection = await response1.json();
       const { id } = remotePeerConnection;
+    ...
+```
+
+#### 2. 수신된 peer 에 내 peer 정보를 설정하여 서버에 전달
+##### 2.1. 새로운 local peer 생성한다.
+
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
 
       // 새로운 peer 생성
       const localPeerConnection = new RTCPeerConnection({
         sdpSemantics: 'unified-plan'
       });
-
       ...
 
+```
+##### 2.2. local peer 의 remote peer 로 수신된 peer 를 등록한다.
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
       try {
-        // local peer 에 수신된 remote peer 를 설정
         await localPeerConnection.setRemoteDescription(remotePeerConnection.localDescription);
+      ...
+}
+```
 
-        // application 설정 media 를 `addTrack` 으로 peer 에 설정
+##### 2.3. 비지니스 로직(미디어, 파일 전송 데이터 등)을 local peer 에 등록한다.
+
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
         await beforeAnswer(localPeerConnection);
-
+      ...
+}
+```
+##### 2.4. 비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
         // answer 를 생성
         const originalAnswer = await localPeerConnection.createAnswer();
 
@@ -140,8 +170,18 @@ class ConnectionClient {
           sdp: stereo ? enableStereoOpus(originalAnswer.sdp) : originalAnswer.sdp
         });
         await localPeerConnection.setLocalDescription(updatedAnswer);
-
-        // 서버에 생성된 peer 의 local description 전달
+        ...
+    };
+  }
+}
+```
+##### 2.5. 서버에 local peer description 전송
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
         await fetch(`${host}${prefix}/connections/${id}/remote-description`, {
           method: 'POST',
           body: JSON.stringify(localPeerConnection.localDescription),
@@ -149,8 +189,19 @@ class ConnectionClient {
             'Content-Type': 'application/json'
           }
         });
+        ...
+    };
+  }
+}
+```
+##### 2.6. peer close 를 위해 보관
 
-        // peer close 를 위해 보관
+```JS
+// lib > client > index.js
+class ConnectionClient {
+    ...
+    this.createConnection = async (options = {}) => {
+      ...
         return localPeerConnection;
         ...
     };
