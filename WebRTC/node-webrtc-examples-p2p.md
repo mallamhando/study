@@ -133,7 +133,7 @@ class WebRtcConnectionManager {
 }
 ```
 
-### 3. \[Server] UUID 생성하고 close listener 와 peer 관리용 Map 에 등록
+### 3. \[Server] peer 생성 준비 작업
 Peer id 를 위한 UUID 를 만들고 close listener 를 등록한다.
 Server 전체의 peer 를 관리하는 Map 객체에 id 에 맞는 peer 를 등록 시킨다.
 
@@ -165,6 +165,11 @@ class WebRtcConnection extends Connection {
 
 ### 5. \[Server] 비지니스 로직을 peer 에 등록
 미디어 또는 데이터 전송을 위한 비지니스 로직을 peer 에 등록시킨다.
+
+> 비지니스 로직의 실행 시작 시점이다.
+> 하지만 비지니스 로직의 데이터 전달 시점은 아니다.
+> 데이터 전달은 peer 연결이 완료될 때 시작된다.
+> 비지니스 로직의 실행 시작 시점과 비지니스 로직 데이터의 전달 시점은 다르다.
 
 ```JS
 // lib > server > connections > webrtcconnection.js
@@ -201,7 +206,7 @@ class WebRtcConnection extends Connection {
 }
 ```
 
-### 7. \[Server] peer 전달을 위한 description 구성하여 client 에 전달
+### 7. \[Server] peer 전달을  위한 description
 Client 에 peer 를 전달하기 위한 peer description 을 생성한다. toJSON 프로토타입을 사용한다.
 
 ```JS
@@ -233,7 +238,10 @@ class WebRtcConnection extends Connection {
     };
     ...
 }
+```
 
+### 8. \[Server] peer description 을 client 에 전달
+```JS
 // lib > server > rest > connectionsapi.js
 function mount(app, connectionManager, prefix = '') {
   ...
@@ -246,14 +254,14 @@ function mount(app, connectionManager, prefix = '') {
   ...
 ```
 
-### 8. \[Client] peer 수신
+### 9. \[Client] peer 수신
 ```JS
 // lib > client > index.js
       const remotePeerConnection = await response1.json();
       const { id } = remotePeerConnection;
 ```
 
-### 9. \[Client] 새로운 local peer 생성한다.
+### 10. \[Client] 새로운 local peer 생성
 ```JS
 // lib > client > index.js
       const localPeerConnection = new RTCPeerConnection({
@@ -261,20 +269,27 @@ function mount(app, connectionManager, prefix = '') {
       });
 ```
 
-### 10. \[Client] local peer 의 remote peer 로 수신된 peer 를 등록한다.
+### 11. \[Client] remote peer 등록
+local peer 의 remote peer 로 수신된 peer 를 등록한다.
+
 ```JS
 // lib > client > index.js
         await localPeerConnection.setRemoteDescription(remotePeerConnection.localDescription);
 ```
 
-### 11. \[Client] 비지니스 로직(미디어, 파일 전송 데이터 등)을 local peer 에 등록한다.
+### 11. \[Client] 비지니스 로직을 등록
+미디어, 파일 전송 데이터 등을 위한 비지니스 로직을 Client peer 에 등록한다.
+
+> Client 의 비지니스 로직은 이때 시작한다.
 
 ```JS
 // lib > client > index.js
         await beforeAnswer(localPeerConnection);
 ```
 
-### 12. \[Client] 비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
+### 12. \[Client] 추가 정보 등록
+음향 설정 등의  비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
+
 ```JS
 // lib > client > index.js
         const originalAnswer = await localPeerConnection.createAnswer();
@@ -300,7 +315,7 @@ function mount(app, connectionManager, prefix = '') {
 
 ### 14. \[Server] Client 의 peer 정보를 수신
 Client 의 peer 를 수신하고 server peer 에 remote peer 로 등록한다.
-상호간의 등록이 완료되면 peer 의 비지니스 로직이 동작을 시작한다.
+상호간의 등록이 완료되면 peer 의 비지니스 로직이 전송이 시작된다.
 
 ```JS
 // lib > server > rest > connectionsapi.js
