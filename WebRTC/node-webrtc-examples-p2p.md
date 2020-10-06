@@ -2,6 +2,10 @@ https://github.com/node-webrtc/node-webrtc-examples#architecture
 
 # node-webrtc-examples 의 peer signaling 분석
 
+MDN 의 자료, https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity 가 더 원론적으로 peer signaling 을 설명하고 있다.
+또한 peer signaling 을 위한 문서 및 라이브러리 자료들은 많이 있다.
+하지만 당장 내 프로젝트와 가장 유사한 예제인 node-webrtc-examples 의 소스를 분석하여 사용한다.
+
 ## Init
 ### Server
 Peer 연결 관리 객체를 생성하고 API 와 연결한다. Peer 를 저장하기 위한 Map 객체를 생성하고 메소드를 연결하는 것 이외에 특별한 초기 작업은 없다.
