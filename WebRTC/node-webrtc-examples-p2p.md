@@ -291,8 +291,9 @@ local peer 의 remote peer 로 수신된 peer 를 등록한다.
         await beforeAnswer(localPeerConnection);
 ```
 
-### 12. \[Client] 추가 정보 등록
-음향 설정 등의  비지니스 로직의 추가적인 정보가 필요할 경우 local peer 의 answer 객체를 생성해서 추가 정보를 등록한다.
+### 12. \[Client] peer description 생성
+Client peer 의 description 을 생성한다.
+음향 설정 등의 비지니스 로직의 추가적인 정보를 더할수도 있다.
 
 ```JS
 // lib > client > index.js
