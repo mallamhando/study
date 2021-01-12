@@ -40,4 +40,6 @@ renderer.render(scene, camera);
 3D 세계에서 어느 위치에서 어느 방향으로 바라볼지를 결정한다.
 카메라를 움직이는 것만으로도 애니메이션 효과가 발생한다.
 
-## 
+## Clip
+geometery 는 3D 물체의 뼈대, material 을 색칠을 의미한다.
+색칠에 clippingPlanes 를 적용하면 3D 물체를 자르는 효과를 낼수 있다.
