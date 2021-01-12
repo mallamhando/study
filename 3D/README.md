@@ -42,4 +42,5 @@ renderer.render(scene, camera);
 
 ## Clip
 geometery 는 3D 물체의 뼈대, material 을 색칠을 의미한다.
-색칠에 clippingPlanes 를 적용하면 3D 물체를 자르는 효과를 낼수 있다.
+material 에 clippingPlanes 를 적용하면 3D 물체를 자르는 효과를 낼수 있다.
+clippingPlanes 의 개수는 무제한이다.
