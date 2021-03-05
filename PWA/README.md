@@ -64,6 +64,13 @@ set HTTPS=true&&npm start   // Windows CMD
 ### CRA-making-a-progressive-web-app
 https://github.com/mallamhando/study/blob/master/making-a-progressive-web-app-kr.md
 
+### CRA service worker
+CRA service worker 코드는 자동으로 생성된다.
+자동으로 생성된 코드는 google 의 workbox 를 기반으로 동작한다.
+내용적으로 보이는 것은 CRA 가 생성한 js, css 파일들을 precache 하는것이 전부다.
+
+사용자에게 제공된 코드는 service worker 를 등록하고 해제하는 것뿐이다.
+
 ### vs Flutter
 PC 게임 계속해서 진보된 성능을 보여주는 데에도 콘솔 게임은 지속적으로 자신의 영역을 유지하며 발전하고 있다.
 native app 이 계속해서 필요한 이유와 비슷하다.
