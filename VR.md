@@ -8,3 +8,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/XRView
 
 ## 필요한 정보
 색상과 3D 좌표를 포함한 픽셀정보 array
+
+WebGL 코드 활용?
+
+VR 입력은 가상화 가능
