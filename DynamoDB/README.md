@@ -1,21 +1,23 @@
-# DynamoDB를 사용한 설계 및 아키텍처 설계 모범 사례
+# DynamoDB
+
+## DynamoDB를 사용한 설계 및 아키텍처 설계 모범 사례
 https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/bp-general-nosql-design.html
 
-## DynamoDB를 위한 NoSQL 설계
-### 관계형 데이터 설계와 NoSQL의 차이점
+### DynamoDB를 위한 NoSQL 설계
+#### 관계형 데이터 설계와 NoSQL의 차이점
 단일 엔터티를 쿼리하는 것은 DynamoDB 가 유리하지만 관계형 데이터를 쿼리할대는 RDBMS 가 더 유리하다고 설명하는 것 같다.
 자세한 내용은 아직 부족하다.
 
-### NoSQL 설계의 두 가지 주요 개념
+#### NoSQL 설계의 두 가지 주요 개념
 * DynamoDB 애플리케이션에서는 가능한 적은 수의 테이블을 유지
 
 PostageSQL 로 갈까? ㅠㅜ
 IoT 데이터는 DynamoDB 가 적합해 보이지만, 사용자 관계를 표현할때는 SQL 이 편리할것 같은 느낌이다.
 
-### NoSQL 설계에 접근
+#### NoSQL 설계에 접근
 쿼리 패턴 파악이 중요
 
-## DynamoDB의 시계열 데이터를 처리하는 모범 사례
+### DynamoDB의 시계열 데이터를 처리하는 모범 사례
 > 시계열 데이터의 경우 기간별로 애플리케이션당 하나의 테이블을 사용하여 처리하는 것이 가장 좋을 수도 있습니다.
 
 * 분석 기간 단위로 테이블을 생성
@@ -34,6 +36,14 @@ IoT 데이터는 DynamoDB 가 적합해 보이지만, 사용자 관계를 표현
 * 서울 리전에 없음
 * 리전 사이의 데이터 이동은 비용 발생
 
+## Amazon DynamoDB의 핵심 구성 요소
+### 보조 인덱스(Secondary Indexes)
+
+#### 글로벌 보조 인덱스
+PK 와 SK 모두가 다른 경우
+#### 로컬 보조 인덱스
+SK 만 다른 경우
+
 ## 내 생각
 ### 220107
 #### 1
@@ -42,3 +52,8 @@ IoT 데이터는 DynamoDB 가 적합해 보이지만, 사용자 관계를 표현
 
 #### 2
 보조 인덱션이 관계형 데이터를 표현하는데 핵심으로 보인다.
+
+#### 3
+* 보조 인덱션으로 회사명을 사용하면?
+  * 회사명을 변경할때는?
+
