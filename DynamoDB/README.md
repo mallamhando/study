@@ -29,7 +29,12 @@ IoT 데이터는 DynamoDB 가 적합해 보이지만, 사용자 관계를 표현
   * 오래된 시간의 테이블은 필요에 따라 삭제
 
 #### 질문?
-* 센서 단위의 구분은?
+* 디바이스 단위의 구분은?
+
+### Example of Modeling Relational Data in DynamoDB
+#### GSI overloading
+한 GSI 의 값을 다른 타입으로 설정하면 같은 query 를 해도 다양한 형태의 응답을 구성할 수 있다.
+이런 방식으로 GSI 가 20 개로 한정되는 것을 극복할 수 있다.
 
 ##### AWS timestream
 * https://aws.amazon.com/ko/timestream/ ?
