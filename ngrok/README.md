@@ -25,6 +25,7 @@
   * 에러가 발생했을때 백업으로 동작할 서버를 지정할수 있다.
   * 여러 장비들이 하나의 URL 에 묶여서 동작할수 있다.
   * URL 접속자는 여러 장비 중 하나에 접속되는 방식으로 Load Balancing 이 이루어진다.
+* Domain 뿐만 아니라 TCP address 도 
 
 ## Link
 * https://ngrok.com/
