@@ -10,10 +10,10 @@
 ## 보안
 * OAuth 접속 가능
 * https 기본 접속 설정 가능
+* local → ngrok server 도 secure 한가?
 
-## Node.js 제어
-* https://github.com/bubenshchykov/ngrok
-* https://github.com/ngrok/ngrok-api-typescript
+## 비용
+* Pro 와 Enterprise 의 차이는?
 
 ## Terraform
 * https://book.naver.com/bookdb/book_detail.nhn?bid=14644648
@@ -26,6 +26,10 @@
   * 여러 장비들이 하나의 URL 에 묶여서 동작할수 있다.
   * URL 접속자는 여러 장비 중 하나에 접속되는 방식으로 Load Balancing 이 이루어진다.
 * Domain 뿐만 아니라 TCP address 도 미리 예약할수있다.
+
+### Node.js 제어
+* https://github.com/bubenshchykov/ngrok
+* https://github.com/ngrok/ngrok-api-typescript
 
 ## Link
 * https://ngrok.com/
