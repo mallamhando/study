@@ -11,6 +11,8 @@
 * OAuth 접속 가능
 * https 기본 접속 설정 가능
 * local → ngrok server 도 secure 한가?
+  * https://ngrok.com/docs/cloud-edge#terminating-tls-connections
+  * 옵션이 있고, 기본적으로 TLS Encrypted 되어 있다.
 
 ## 사용자 관리
 * role based access control (RBAC), IP Policy, and SSO
