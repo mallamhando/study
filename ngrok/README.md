@@ -7,6 +7,10 @@
 * 비용
 * Terraform
 
+## 보안
+* OAuth 접속 가능
+* https 기본 접속 설정 가능
+
 ## Terraform
 * https://book.naver.com/bookdb/book_detail.nhn?bid=14644648
 
