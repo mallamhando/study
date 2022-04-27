@@ -21,6 +21,8 @@
 ## 기타
 * 네트워크 보안으로 ngrok 이 동작 안된다면 `ngrok diagnose` 로 진단하고 custom ingress domain 을 이용해 접속할수 있다.
 * local https 동작이 가능하다.
+  * local network 내부에서의 보안설정 가능?
+  * local 서버의 다른 interface 를 적절하게 block 
 * Load Balancing
   * 에러가 발생했을때 백업으로 동작할 서버를 지정할수 있다.
   * 여러 장비들이 하나의 URL 에 묶여서 동작할수 있다.
