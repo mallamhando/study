@@ -12,6 +12,10 @@
 * https 기본 접속 설정 가능
 * local → ngrok server 도 secure 한가?
 
+## 사용자 관리
+* role based access control (RBAC), IP Policy, and SSO
+  * 사용자 역할 분리 가능
+
 ## 비용
 * Pro 와 Enterprise 의 차이는?
 
@@ -28,6 +32,7 @@
   * 여러 장비들이 하나의 URL 에 묶여서 동작할수 있다.
   * URL 접속자는 여러 장비 중 하나에 접속되는 방식으로 Load Balancing 이 이루어진다.
 * Domain 뿐만 아니라 TCP address 도 미리 예약할수있다.
+* 파일 서버 동작이 가능하다.
 
 ### Node.js 제어
 * https://github.com/bubenshchykov/ngrok
