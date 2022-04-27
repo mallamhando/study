@@ -19,7 +19,8 @@
 * https://book.naver.com/bookdb/book_detail.nhn?bid=14644648
 
 ## 기타
-* 네트워크 보안으로 ngrok 이 동작 안된다면 `ngrok diagnose` 로 진단하고 custom ingress domain 을 이용해 접
+* 네트워크 보안으로 ngrok 이 동작 안된다면 `ngrok diagnose` 로 진단하고 custom ingress domain 을 이용해 접속할수 있다.
+* local https 동작이 가능하다.
 
 ## Link
 * https://ngrok.com/
