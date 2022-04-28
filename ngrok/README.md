@@ -3,7 +3,7 @@
 ## Questions
 * 보안
 * 사용자 관리
-* 원격 활성화/비활성화
+* 원격 활성/비활성화
 * 비용
 * Terraform
 
@@ -17,6 +17,12 @@
 ## 사용자 관리
 * role based access control (RBAC), IP Policy, and SSO
   * 사용자 역할 분리 가능
+
+## 원격 활성/비활성화
+* 로컬 API 를 제어하는 별도의 원격 서비스 개발 필요?
+
+### 로컬 활성/비활성화
+* https://ngrok.com/docs/secure-tunnels#api-access
 
 ## 비용
 * Pro 와 Enterprise 의 차이는?
@@ -38,7 +44,7 @@
 
 ### edge vs tunnel?
 * edge 는 미리 설정해 놓은 domain?
-* tunnel 은 
+* tunnel 은 random domain? 
 
 ### Node.js 제어
 * https://github.com/bubenshchykov/ngrok
