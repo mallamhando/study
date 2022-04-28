@@ -36,6 +36,10 @@
 * Domain 뿐만 아니라 TCP address 도 미리 예약할수있다.
 * 파일 서버 동작이 가능하다.
 
+### edge vs tunnel?
+* edge 는 API?
+* tunnel 은 
+
 ### Node.js 제어
 * https://github.com/bubenshchykov/ngrok
 * https://github.com/ngrok/ngrok-api-typescript
