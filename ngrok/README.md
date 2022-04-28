@@ -37,7 +37,7 @@
 * 파일 서버 동작이 가능하다.
 
 ### edge vs tunnel?
-* edge 는 API?
+* edge 는 미리 설정해 놓은 domain?
 * tunnel 은 
 
 ### Node.js 제어
