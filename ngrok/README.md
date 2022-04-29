@@ -6,6 +6,7 @@
 * 원격 활성/비활성화
 * 비용
 * Terraform
+* tunnel 지속 시간
 
 ## 보안
 * OAuth 접속 가능
@@ -19,13 +20,24 @@
   * 사용자 역할 분리 가능
 
 ## 원격 활성/비활성화
-* 로컬 API 를 제어하는 별도의 원격 서비스 개발 필요?
+* https://ngrok.com/docs/secure-tunnels#remote-management
+* 계정 정보를 바탕으로 tunnel session API 를 이용한다.
+* tunnel session API 를 통해 원격으로 start, stop, restart, update 가능
+* tunnel session API 를 통해 URL 확인 가능
+* https://dashboard.ngrok.com/tunnels/agents 으로 UI 제어 가능
+* Enterprise($65) 유료 계정에서만 사용 가능
 
 ### 로컬 활성/비활성화
 * https://ngrok.com/docs/secure-tunnels#api-access
 
 ## 비용
-* Pro 와 Enterprise 의 차이는?
+* Pro 와 Enterprise 의 차이
+* https://ngrok.com/pricing
+
+| | Free | Pro | Enterprise
+| :---: | :---: | :---: | :---: |
+| Agent 원격 제어 | X | X | O |
+| Agent 개수 | 1 | 개당 $14 추가 | 개당 $45 추가 |
 
 ## Terraform
 * https://book.naver.com/bookdb/book_detail.nhn?bid=14644648
