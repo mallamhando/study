@@ -4,17 +4,28 @@
 * VPN 에 가까운 컨셉
 
 ## 질문
-* 양방향의 TLS 보안?
-  * HTTPS 와는 다르지만 데이터를 암호화함
-* 동시 생성 가능한 URL 개수
-* iOS, Android chrome 에서 접속 가능?
+* [x] 양방향의 TLS 보안?
+  * [x] HTTPS 와는 다르지만 데이터를 암호화함
+* [x] 동시 생성 가능한 URL 개수?
+* [x] iOS, Android chrome 에서 접속 가능?
+* [ ] 네트워크의 수명?
 
 ## Network Members
 * 하나의 VPN 에 접속할수 있는 사용자 수
+* 무료 계정으로 50 접속 가능
 
-## 사용 후기
+## 동시 생성 Network 수
+* 무료 계정으로 제한 없음
+
+## 사용성
 * STUN 설정 없이도 WebRTC 연결 가능
 * 사용자 편리성은 미지수
+
+## iOS & Android 접속
+* ZeroTier 앱을 설치
+* 사용자가 네트워크 아이디를 입력
+* Admin 이 접속 허용
+* 사용자가 서버 아이피를 chrome 에 입력
 
 ## Link
 * https://www.zerotier.com
