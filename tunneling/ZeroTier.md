@@ -34,6 +34,33 @@
 * Admin 이 접속 허용
 * 사용자가 서버 아이피를 chrome 에 입력
 
+## 고정 연결 지점
+* 고정 IP 설정 가능
+* 한번 IP 가 설정되면 연결이 끊기고 다시 연결되었을때도 같은 IP 로 설정됨
+
+## DNS 관리
+* DNS 를 ZeroTier 서버에서 제공하지 않음
+* DNS 서버를 network 에 추가 가능함
+* Linux 의 hostname 이용한 접속은 실패
+
+## Raspberry Pi mDNS
+* mDNS 를 이용한 접속 테스트 필요
+* https://bloggerbrothers.com/2017/01/08/name-your-pis-with-mdns-forget-the-ips-with-zeroconf/
+
+## Linux Commands
+
+### Join
+```bash
+sudo zerotier-cli join {networkID}
+```
+
+### Leave
+```bash
+sudo zerotier-cli leave {networkID}
+```
+
 ## Link
 * https://www.zerotier.com
 * https://www.zerotier.com/pricing
+* https://www.zerotier.com/2021/05/06/zeronsd-unicast-dns-resolution-for-zerotier-now-in-alpha/
+* https://zerotier.atlassian.net/wiki/spaces/SD/pages/900431890/DNS+Management
