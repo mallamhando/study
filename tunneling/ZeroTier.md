@@ -37,6 +37,7 @@
 ## 고정 연결 지점
 * 고정 IP 설정 가능
 * 한번 IP 가 설정되면 연결이 끊기고 다시 연결되었을때도 같은 IP 로 설정됨
+* Linux 환경에서 한번 join 하면 재부팅 이후에도 자동으로 join 상태 유지
 
 ## DNS 관리
 * DNS 를 ZeroTier 서버에서 제공하지 않음
@@ -46,6 +47,15 @@
 ## Raspberry Pi mDNS
 * mDNS 를 이용한 접속 테스트 필요
 * https://bloggerbrothers.com/2017/01/08/name-your-pis-with-mdns-forget-the-ips-with-zeroconf/
+* mDNS 으로 얻은 hostname URL 을 통해 chrome 접속이 가능
+  * Android chrome 에서는 접속 X ← 원인 미확인
+
+### Install
+* https://www.zerotier.com/download/
+
+```bash
+curl -s https://install.zerotier.com | sudo bash
+```
 
 ## Linux Commands
 
@@ -64,3 +74,4 @@ sudo zerotier-cli leave {networkID}
 * https://www.zerotier.com/pricing
 * https://www.zerotier.com/2021/05/06/zeronsd-unicast-dns-resolution-for-zerotier-now-in-alpha/
 * https://zerotier.atlassian.net/wiki/spaces/SD/pages/900431890/DNS+Management
+* https://my.zerotier.com/
