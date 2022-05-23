@@ -38,9 +38,31 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } }
 추천하는 사용자 Case | 전략이름 | 공급자
 -- | -- | --
 AppSync API key 를 가지고 있는 누구나 접속 가능한 공공 데이터. | `public` | apiKey
-Recommended for production environment's public data access. Public data access where unauthenticated users or devices are granted permissions using AWS IAM controls. | `public` | iam
-Per user data access. Access is restricted to the "owner" of a record. Leverages amplify add auth Cognito user pool by default. | `owner` | userPools / oidc
-Any signed-in data access. Unlike owner-based access, any signed-in user has access. | `private` | userPools / oidc / iam
-Per user group data access. A specific or dynamically configured group of users have access | `group` | userPools / oidc
-Define your own custom authorization rule within a Lambda function | `custom` | function
+출시 환경의 public 데이터 접근에 추천. 인증되지 않은 사용자 또는 AWS IAM 으로 권한이 확인된 장치에서 접근하는 public data. | `public` | iam
+사용자 단위 데이터 접근. 각 기록의 `owner` 만이 데이터 접근 권한을 갖는다. Cognito user pool 를 기본으로 사용하는 `amplify add auth` 명령어가 있다. | `owner` | userPools / oidc
+signed-in data 접근. owner-based 접근과 다르게, 모든 signed-in user 가 접근할수 있다. | `private` | userPools / oidc / iam
+사용자 그룹에 따른 접근. 특정 또는 동적으로 설정된 사용자 그룹이 접근 가능 | `group` | userPools / oidc
+Lambda function 으로 정의되는 custom 인증 방식 | `custom` | function
+
+### Public data access
+
+모두가 접근 가능한 `public` 인증 전략. 하지만, API Key 보호된다.
+
+```graphql
+type Todo @model @auth(rules: [{ allow: public }]) {
+  content: String
+}
+```
+
+여기에 인증 공급자를 덮어쓸수 있다. 아래의 예에서, `iam` 를 공급자로 사용하는 방법으로 Cognito identity pool 의 public access 를 이용해 API key 대신 비인증 규칙("Unauthenticated Role") 을 적용할 수 있다. `amplify add auth` 명령어를 실행하면, Amplify CLI 는 자동으로 Cognito idendity pool 에 있는 "Unauthenticated Role" 을 위한 IAM 정책으로 범위를 좁히게 된다.
+
+```graphql
+# public authorization with provider override
+type Post @model @auth(rules: [{ allow: public, provider: iam }]) {
+  id: ID!
+  title: String!
+}
+```
+
+### Per-user / owner-based data access
 
