@@ -66,3 +66,101 @@ type Post @model @auth(rules: [{ allow: public, provider: iam }]) {
 
 ### Per-user / owner-based data access
 
+데이터 접근을 특정 사용자에게 특정하기 위해서는 `owner` 인증 전략이 필요하다. `owner` 인증을 사용하면, 오직 데이터 `owner` 만이 특정 동작을 수행할 수 있다.
+
+```graphql
+# The "owner" of a Todo is allowed to create, read, update, and delete their own todos
+type Todo @model @auth(rules: [{ allow: owner }]) {
+  content: String
+}
+
+# The "owner" of a Todo record is only allowed to create, read, and update it.
+# The "owner" of a Todo record is denied to delete it.
+type Todo @model @auth(rules: [{ allow: owner, operations: [create, read, update] }]) {
+  content: String
+}
+```
+
+Amplify 는 자동으로 `owner: String` 필드를 각 데이터에 더한다. 각 데이터의 `owner` 필드는 `owner` 의 식별 정보를 저장한다.
+
+기본적으로, Cognito user pool 의 사용자 정보는 `owner` 필드에 덧붙여진다. `sub` 와 `username` 이 `<sub>::<username>` 형식의 값으로 사용된다. API 는 `<sub>::<username>` 또는 분리된 `sub` / `username` 값을 이용해 인증하고 `username` 으로 응답한다. 또는, [OpenID Connect as an authorization provider](https://docs.amplify.aws/cli/graphql/authorization-rules/#using-oidc-authorization-provider) 를 사용할 수도 있다.
+
+인증 규직에서 custom `ownerField` 를 특정하는 방법으로 `owner` 필드를 선호하는 다른 필드로 덮어쓸수도 있다.
+
+```graphql
+type Todo @model @auth(rules: [{ allow: owner, ownerField: "author" }]) {
+  content: String                             #^^^^^^^^^^^^^^^^^^^^
+  author: String # record owner information now stored in "author" field
+}
+```
+
+기본적으로 한 사용자만 데이터의 owner 가 될수 있지만, 사용자 집합으로 데이터 접근 권한을 설정할 수도 있다.
+
+```graphql
+type Todo @model @auth(rules: [{ allow: owner, ownerField: "authors" }]) {
+  content: String
+  authors: [String]
+}
+```
+
+위의 예시에서 `authors` 목록이 데이터 생성시 덧붙여진다. 생성자는 `authors` 필드를 추가적인 사용자로 업데이트 할수 있다. `authors` 필드의 모든 사용자는 데이터에 접근할수 있다.
+
+**Known limitation**: `authors` 목록으로 설정되면 `owner` 가 설정될때 실시간 subscription 기능이 지원되지 않는다.
+
+### Signed-in user data access
+
+데이터 접근이 모든 signed-in 사용자에게로 제한될때, `private` 인증 전략을 사용한다.
+
+> 특정 사용자에게만 접근 권한을 설정하고 싶으면 [Per-user / owner-based data access](#per-user--owner-based-data-access) 를 사용해야 한다. signed-in 방식은 signed-in 한 모든 사용자에게 접근 가능한 인증 규칙이다.
+
+```graphql
+type Todo @model @auth(rules: [{ allow: private }]) {
+  content: String
+}
+```
+
+우의 예제에서 Cognito user pool 를 통해 유효하다고 인증받은 JWT 토큰 사용자는 모든 Todo 데이터에 접근 가능하다.
+
+인증 공급자를 변경할 수도 있다. 아래의 예에서 API key 대신 public 접근을 위한 Cognito identity pool 의  `iam` 인증 규칙이 공급자로 설정되었다. `amplify add auth` 를 실행하면 Amplify CLI 는 자동으로 Cognito identity pool 에서 인증규칙을 위한 IAM 정책 대로 접근 범위를 제한한다.
+
+```graphql
+type Todo @model @auth(rules: [{ allow: private, provider: iam }]) {
+  content: String
+}
+```
+
+또한, OpenID Connect 으로도 `private` 인증을 사용할수 있다. 자세한 내용은 [OpenID Connect as an authorization provider](https://docs.amplify.aws/cli/graphql/authorization-rules/#using-oidc-authorization-provider) 을 참조해야 한다.
+
+### User group-based data access
+
+사용자 그룹으로 데이터 접근 권한을 제한하고 싶을때 `gruop` 인증 전략을 사용한다.
+
+**Static group authorization**: 특정 사용자 그룹으로 제한하고 싶을때, `groups` 인자에 그룹명을 입력한다.
+
+```graphql
+type Salary @model @auth(rules: [{ allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  wage: Int
+  currency: String
+}
+```
+
+위의 예에서 "Admin" 그룹의 사용자만이 Salary 모델 데이터에 접근할수 있다.
+
+**Dynamic group authorization**: 동적으로 접근가능한 사용자 그룹을 변경하고 싶을때 사용한다.
+
+```graphql
+# Dynamic group authorization with multiple groups
+type Post @model @auth(rules: [{ allow: groups, groupsField: "groups" }]) {
+  id: ID!
+  title: String
+  groups: [String]
+}
+
+# Dynamic group authorization with a single group
+type Post @model @auth(rules: [{ allow: groups, groupsField: "group" }]) {
+  id: ID!
+  title: String
+  group: String
+}
+```
