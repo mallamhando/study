@@ -164,3 +164,68 @@ type Post @model @auth(rules: [{ allow: groups, groupsField: "group" }]) {
   group: String
 }
 ```
+
+### Custom authorization rule
+
+Lambda 함수를 이용한 custom 인증 규직을 정의할수 있다.
+
+```graphql
+type Salary @model @auth(rules: [{ allow: custom }]) {
+  id: ID!
+  wage: Int
+  currency: String
+}
+```
+
+선택된 Lambda 함수는 인증 token 을 client 로부터 수신해 원하는 형태의 인증 로직을 수행한다.
+AppSync GraphQL API 는 Lambda 로부터 API 호출을 허가/거절을 수행한 결과 payload 를 수신한다.
+
+```bash
+amplify update api
+```
+
+```bash
+? Select a setting to edit:
+> Authorization modes
+
+> Lambda
+
+? Choose a Lambda source:
+> Create a new Lambda function
+```
+
+위의 명령을 수행하면 custom 인증 규칙을 위한 Lambda 함수 탬플릿이 생성된다.
+Lambda 함수가 수신하게 되는 인증 데이터는 아래와 같다.
+
+```JS
+{
+    "authorizationToken": "ExampleAuthToken123123123", # Authorization token specified by client
+    "requestContext": {
+        "apiId": "aaaaaa123123123example123", # AppSync API ID
+        "accountId": "111122223333", # AWS Account ID
+        "requestId": "f4081827-1111-4444-5555-5cf4695f339f",
+        "queryString": "mutation CreateEvent {...}\n\nquery MyQuery {...}\n", # GraphQL query
+        "operationName": "MyQuery", # GraphQL operation name
+        "variables": {} # any additional variables supplied to the operation
+    }
+}
+```
+
+Lambda 함수는 인증 로직을 수행한 뒤에 아래 형태의 JSON 데이터로 응답하면 된다.
+
+```JS
+{
+  // required
+  "isAuthorized": true, // if "false" then an UnauthorizedException is raised, access is denied
+  "resolverContext": { "banana": "very yellow" }, // JSON object visible as $ctx.identity.resolverContext in VTL resolver templates
+
+  // optional
+  "deniedFields": ["TypeName.FieldName"], // Forces the fields to "null" when returned to the client
+  "ttlOverride": 10 // The number of seconds that the response should be cached for. Overrides default specified in "amplify update api"
+}
+```
+
+custom 인증 토큰을 설정하기위한 내용은 아래 링크에 더 자세히 설명되어 있다.
+* https://docs.amplify.aws/lib/graphqlapi/authz/q/platform/js/#aws-lambda
+* https://docs.amplify.aws/lib/datastore/setup-auth-rules/q/platform/js/#configure-custom-authorization-logic-with-aws-lambda
+
