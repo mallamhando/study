@@ -50,3 +50,51 @@ type Query {
 }
 ```
 
+Amplify CLI 다양한 환경을 제어하는 방법을 제공한다.
+`amplify add function` 를 통해 배포할때, 자동으로 Lambda 함수이름에 환경 변수를 더해준다.
+
+### 함수 이벤트 구조
+
+연결된 Lambda 함수는 아래와 같은 AWS Lambda `event` 구조체를 받게된다.
+
+| Key	| Description |
+| :--- | :--- |
+typeName | query 필드 resolver 의 부모 객체 타입 이름
+fieldName | resolve 되는 필드 이름
+arguments | query 되고 있는 입력 변수
+identity | 요청에 포함된 사용자 정보 map. 'claims' 으로 정의된 변수에는 JWT claims 등을 포함할 수 있다.
+source | 중첩된 필드의 resolver 동작을 할경우 부모 객체의 실제 값. 예를 들어 Post.comment 를 호출할 경우 comment 리졸버에서 Post 객체를 확인하는 것을 의미한다.
+request | AppSync request 객체. header 정보를 가지고 있다.
+prev | pipeline resolver 를 사용할때, 이전 함수에서 전달한 값을 의미한다. use case 에 따라 이전 값을 검증할 수 있다.
+
+### Chaning functions
+
+여러개의 `@function` 리졸버를 차례로 실행되게 할수 있다.
+pipeline 리졸버를 구성하기 위해 여러개의 `@function` 지시어를 더하면 된다.
+
+```graphql
+type Mutation {
+  doSomeWork(msg: String): String @function(name: "worker-function") @function(name: "audit-function")
+}
+```
+
+위와 같은 설정에서 **worker-function** 이후에 **audit-function** 이 실행된다.
+**worker-function** 의 결과는 **event.prev.result** 에 저장되어 전달된다.
+
+### How it wokrs
+
+`@function` 지시어의 정의는 다음과 같다.
+
+```graphql
+directive @function(name: String!, region: String) on FIELD_DEFINITION
+```
+
+Amplify 는 문서안의 `@function` 의 특정 인스턴트마다 `AppSync::FunctionConfiguration` 를 생성한다.
+그리고 pipeline 리졸버가 각 `@function` 를 가르키도록 한다.
+
+`@function` 지시어는 필요할 경우 아래 리소스를 생성한다.
+
+1. AWS AppSync trust policy 의 수행 권항용 AWS IAM role
+2. 새로운 역할과 이미 존재하는 API 함수를 등록하기 위한 AWS AppSync data source
+3. 새로운 데이터 소스와 Lambda event 를 대비하기 위한 AWS AppSync pipeline function
+4. 새로운 pipeline 함수를 실행하고 GraphQL 필드와 연결하기 위한 AWS AppSync resolver
