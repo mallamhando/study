@@ -1,5 +1,7 @@
 # Custom business logic (Lambda function, HTTP, and VTL resolvers)
 
+* https://docs.amplify.aws/cli/graphql/custom-business-logic/
+
 Lambda 함수 resolver, HTTP resolver, VTL resolver 를 사용하여 custom business logic 을 정의한 뒤에 GraphQL query 또는 mutation 으로 배포할수 있다.
 확장 또는 덮어 쓰여진 Amplify 생성 GraphQL resolver 들은 특정한 use case 를 최적화 할수 있다.
 
