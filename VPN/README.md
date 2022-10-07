@@ -19,3 +19,5 @@
 ## Links
 * https://codilime.com/blog/ipsec-vs-openvpn-what-are-the-differences/
 * https://tech.devsisters.com/posts/wireguard-vpn-1/
+* https://velog.io/@kikiki0611/AWS%EC%97%90-wireguard-VPN-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0
+
