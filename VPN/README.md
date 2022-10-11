@@ -14,7 +14,9 @@
 
 ## WireGuard
 * 쉽고 안전
-* 
+
+### 
+* https://www.cyberciti.biz/faq/ubuntu-20-04-set-up-wireguard-vpn-server/
 
 ## Links
 * https://codilime.com/blog/ipsec-vs-openvpn-what-are-the-differences/
