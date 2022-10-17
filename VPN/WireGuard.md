@@ -1,6 +1,22 @@
 # WireGuard
 * https://www.wireguard.com/
 
+## Simple & Easy-to-use
+SSH 로 설정하고 배포하기 쉽게하는 것이 목적입니다.
+VPN 연결이 단순히 public key(정확히 말하면 SSH key) 를 주고받는것만으로 시작되며,
+이후에는 WG 로 투명하게 관리된다.
+[Mosh](http://mosh.mit.edu/) 처럼 IP address 들의 이동에도 적합하며,
+연결을 관리해야할 필요도, 상태를 관리할 필요도, 내부를 깊게 살펴볼 필요도 없다.
+WG 는 극단적으로 간단하면서도 강력한 인터페이스를 구현한다.
+
+## Cryptographically Sound
+WG 는 최신의 암호화 기술을 사용한다.
+Noise protocol framework, Curve25519, ChaCha20, Poly1305, BLAKE2, SipHash24, HKDF 및 보안 구조를 가지고 있다.
+이것들은 보수적이고 합리적이며 보안 관계들에게서 인증을 받았다.
+
+## Minimal Attack Surface
+
+
 ## Simple Network Interface
 WireGuard works by adding a network interface (or multiple),
 like eth0 or wlan0, called wg0 (or wg1, wg2, wg3, etc).
