@@ -30,7 +30,20 @@ WG 는 지루하고 철저하게 고려된 학문적 과정 및 기술 백서의
 
 ## Conceptual Overview
 
-## Simple Network Interface
+기본 컨셉이 궁금하면 계속 읽고, 사용법만 궁금하다면 Quick start 와 설치 방법 링크를 참조하도록 한다.
+
+만약 내부 동작과 프로토콜의 짧은 요약이 궁금하다면 기술 백서를 자세하게 읽어야 한다.
+
+만약 WG 를 새로운 platform 에 구현하기 원한다면 cross-platform note 를 참조해야 한다.
+
+WG 는 보안적으로 캡슐화된 데이터를 UDP 로 전송한다.
+WG interface 를 더하면, private key 와 peer 의 public key 를 설정한뒤에는 데이터 packet 을 주고 받을 수 있게 된다.
+key 를 주고 받는 방법은 WG 의 범위가 아니다.
+key 주고 받는 기능은 IKE 나 OpenVPN 처럼 프로그램을 커지게 만든다.
+상대적으로 SSH 와 Mosh 의 유사본에 가깝다. SSH 와 Mosh 는 상대의 public key 를 주고받는 방식을 사용하면서 통신을 위한 packet 교환 interface 를 구성한다.
+
+### Simple Network Interface
+
 WireGuard works by adding a network interface (or multiple),
 like eth0 or wlan0, called wg0 (or wg1, wg2, wg3, etc).
 This network interface can then be configured normally using ifconfig(8) or ip-address(8),
