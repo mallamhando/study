@@ -1,5 +1,5 @@
 # WireGuard
-* https://www.wireguard.com/
+
 
 ### Simple & Easy-to-use
 SSH 로 설정하고 배포하기 쉽게하는 것이 목적입니다.
@@ -27,6 +27,10 @@ WG 는 한 개인에게도 철저하게 검증될 수 있다.
 ### Well Defined & Thoroughly Considered
 WG 는 지루하고 철저하게 고려된 학문적 과정 및 기술 백서의 결과물이다.
 기술 백서는 프로토콜을 명확하게 정의하고 각 결정에 도달하기 위한 상세한 과정이 나와있는 학문적인 연구 논문이다.
+
+## Links
+* https://ziwon.github.io/post/wireguard/
+* https://www.wireguard.com/
 
 ## Conceptual Overview
 
