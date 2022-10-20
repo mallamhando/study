@@ -31,6 +31,7 @@ WG 는 지루하고 철저하게 고려된 학문적 과정 및 기술 백서의
 ## Links
 * https://ziwon.github.io/post/wireguard/
 * https://www.wireguard.com/
+* https://github.com/pirate/wireguard-docs
 
 ## Conceptual Overview
 
