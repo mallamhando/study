@@ -30,39 +30,20 @@ Flash 암호화가 활성화 되면 아래의 데이터가 기본적으로 암�
 
 ## 관련 eFuse
 
+flash 암호화 동작은 다양한 ESP32 의 eFuse 들도 제어된다.
+eFuse 의 목록과 동작이 아래 테이블에 정리되어 있다.
+eFuse 열의 이름들은 espepuse.py 에서도 동일하게 사용된다.
+eFuse API 를 사용하기 위해서는 `ESP_EFUSE_` 를 붙여서 상해야 한다.
+예를 들어 `esp_efuse_read_field_bit` 는 `ESP_EFUSE_DISABLE_DL_ENCRYPT` 와 같다.
 
-
-The flash encryption operation is controlled by various eFuses available on {IDF_TARGET_NAME}. The list of eFuses and their descriptions is given in the table below. The names in eFuse column are also used by espefuse.py tool. For usage in the eFuse API, modify the name by adding ``ESP_EFUSE_``, for example: esp_efuse_read_field_bit(ESP_EFUSE_DISABLE_DL_ENCRYPT).
-
-.. Comment: As text in cells of list-table header rows does not wrap, it is necessary to make 0 header rows and apply bold typeface to the first row. Otherwise, the table goes beyond the html page limits on the right.
-
-.. only:: not SOC_FLASH_ENCRYPTION_XTS_AES
-
-    .. list-table:: eFuses Used in Flash Encryption
-       :widths: 25 40 10
-       :header-rows: 0
-
-       * - **eFuse**
-         - **Description**
-         - **Bit Depth**
-       * - ``CODING_SCHEME``
-         - Controls actual number of block1 bits used to derive final 256-bit AES key. Possible values: ``0`` for 256 bits, ``1`` for 192 bits, ``2`` for 128 bits. Final AES key is derived based on the ``FLASH_CRYPT_CONFIG`` value.
-         - 2
-       * - ``flash_encryption`` (block1)
-         - AES key storage.
-         - 256 bit key block
-       * - ``FLASH_CRYPT_CONFIG``
-         - Controls the AES encryption process.
-         - 4
-       * - ``DISABLE_DL_ENCRYPT``
-         - If set, disables flash encryption operation while running in Firmware Download mode.
-         - 1
-       * - ``DISABLE_DL_DECRYPT``
-         - If set, disables flash decryption while running in UART Firmware Download mode.
-         - 1
-       * - ``{IDF_TARGET_CRYPT_CNT}``
-         - Enables/disables encryption at boot time. If even number of bits set (0, 2, 4, 6) - encrypt flash at boot time. If odd number of bits set (1, 3, 5, 7) - do not encrypt flash at boot time.
-         - 7
+| eFuse | Description | Bit Depth |
+| :--- | :--- | :--- |
+| `CODING_SCHEME` | Controls actual number of block1 bits used to derive 마지막 256-bit AES key 를 얻기 위해 사용되는 block1 비트의 실제 번호를 제어한다. `0` 일때 256 bits 를, `1` 이면 192 bits, `2` 이면 128 bits 를 의미한다. 마지막 AES key 는 `FLASH_CRYPT_CONFIG` 에 따라 얻을 수 있다. | 2
+| `flash_encryption` (block1) | AES key 저장소 |  256 bit key block
+| `FLASH_CRYPT_CONFIG` | AES 암호화 과정 제어 | 4
+| `DISABLE_DL_ENCRYPT` | 설정되면 F/W 다운로드 모드 동작중에 flash 암호화가 동작하지 않는다. | 1
+| `DISABLE_DL_DECRYPT` | 설정되면 UART F/W 다운로드 모드 동작중에 flash 암호화가 동작하지 않는다. | 1 
+| `FLASH_CRYPT_CNT` | 부팅시의 암호화 동작 여부를 설정한다. 만약 짝수로 설정되면 부팅 과정에서 flash 를 암호화 한다. 반대로 홀수이면 부팅 과정에서 암호화 동작을 수행하지 않는다. | 7
 
 
 .. only:: SOC_FLASH_ENCRYPTION_XTS_AES_256
