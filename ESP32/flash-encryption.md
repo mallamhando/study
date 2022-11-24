@@ -3,40 +3,34 @@
 # ESP32 Flash encryption
 
 ESP32 frash 암호화 기능에 대한 quick start guide 이다.
-예제 코드들을 통해 생산/개발 과정에서 어떻게 테스트하고 검증하는지 알수 있다.
+예제 코드들을 통해 양산/개발 과정에서 어떻게 테스트하고 검증하는지 알수 있다.
 
 ## Introduction
 
+Flash 암호화는 ESP32 칩 외부 frash 메모리의 내용을 암호화 하기 위해 만들어졌다.
+먼저 F/W 는 암호화되지 않은 상태로 저장되고, 이후 데이터가 최초 부팅과정에서 암호화 된다.
+마지막으로, 물리적인 flash redout 기능을 통해 flash 내용을 복구할수 없게 만드는 것이다.
 
-Flash encryption is intended for encrypting the contents of the {IDF_TARGET_NAME}'s off-chip flash memory. Once this feature is enabled, firmware is flashed as plaintext, and then the data is encrypted in place on the first boot. As a result, physical readout of flash will not be sufficient to recover most flash contents.
+Flash 암호화가 활성화 되면 아래의 데이터가 기본적으로 암호화 된다.
 
-With flash encryption enabled, the following types of data are encrypted by default:
+* F/W 부트로더
+* Partition Table
+* 모든 "app" 타입 파티션들
 
-- Firmware bootloader
-- Partition Table
-- All "app" type partitions
+다른 타입의 데이터는 상태에 따라 암호화 된다:
 
-Other types of data can be encrypted conditionally:
+* `encrypted` flag 가 설정된 partition table 의 모든 파티션들
+* 만약 Secure Boot 가 활성화 되었다면 Secure Boot Digest 가 암호화된다.
 
-- Any partition marked with the ``encrypted`` flag in the partition table. For details, see :ref:`encrypted-partition-flag`.
-- Secure Boot bootloader digest if Secure Boot is enabled (see below).
+`Secure Boot` 는 더 안전한 환경을 만들기 위해 flash 암호화와 동시에 사용할수 있는 별도의 기능이다.
 
-.. only:: esp32
+> 양산 단계에서는 flash 암호화를 반드시 "Release" 모드로 사용해야 한다.
 
-    :doc:`Secure Boot <secure-boot-v2>` is a separate feature which can be used together with flash encryption to create an even more secure environment.
+> flash 암호화를 사용하면 ESP32 의 추가적인 업데이트 옵션이 제한된다. flash 암호화를 사용하기전에 문서를 읽고 구현을 확실히 이해해야 한다.
 
-.. important::
-   For production use, flash encryption should be enabled in the "Release" mode only.
+## 관련 eFuse
 
 
-.. important::
-
-    Enabling flash encryption limits the options for further updates of {IDF_TARGET_NAME}. Before using this feature, read the document and make sure to understand the implications.
-
-.. _flash-encryption-efuse:
-
-Relevant eFuses
----------------
 
 The flash encryption operation is controlled by various eFuses available on {IDF_TARGET_NAME}. The list of eFuses and their descriptions is given in the table below. The names in eFuse column are also used by espefuse.py tool. For usage in the eFuse API, modify the name by adding ``ESP_EFUSE_``, for example: esp_efuse_read_field_bit(ESP_EFUSE_DISABLE_DL_ENCRYPT).
 
