@@ -1,5 +1,9 @@
 # Amplify CLI
+## `amplify configure`
+amplify 를 설정한다.
+
 ## `amplify init`
+새로운 amplify 프로젝트를 생성한다.
 
 ## `amplify mock`
 ### `amplify mock api`
