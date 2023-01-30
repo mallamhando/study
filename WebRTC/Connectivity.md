@@ -51,3 +51,22 @@ ICE 는 candidate 가 TCP 또는 UDP 를 통한 연결을 표현할수 있도록
 **`so`**
 
 ### Candidate pair 선택
+ICE 계층은 두 peer 중에서 하나를 **controlling agent** 로 선택해야 한다.
+이 ICE agent 는 연결을 위해 어떤 candidate pair 를 사용할지를 최종 선택한다.
+반대편의 상대 peer 는 **controlled agent** 로 불린다.
+`RTCIceCandidate.transport.role` 속성으로 확인이 가능하지만 그리 중요하지는 않다.
+
+Controlling agent 는 어느 candidate pair 를 사용할지 결졍할 뿐만 아니라 controlled agent 에게 STUN 과 updated offer 를 이용해서 선택된 결과를 signaling(전달) 도 해야 한다.
+Controlled agent 는 어느 candidate 가 선택되는지를 기다린다.
+
+하나의 ICE session 은 controlling agent 가 하나 이상의 candidate pair 를 선택한 결과라는 것은 반드시 기억해야할 사항이다.
+매번 그렇게 진행되고 controlled agent 에게 공유되어야 한다.
+두 peer 는 새로운 candidate pair 에 따라 그들의 연결을 새로 설정한다.
+
+ICE session 이 완료되면, ICE reset 이 발생하기 전까지는 끝까지 유지된다.
+
+candidate 생성이 끝나면 end-of-candidate 알람이 `""` 의 값으로 전달된다.
+이 값도 상대 peer 에 전달되어 addIceCandidate 에 입력되어야 한다.
+
+현재의 negotiation 교환에서 더이상 candidate 가 없을때는 `null` 값으로 이벤트가 발생한다.
+이 값은 상대 peer 에 전달될 필요가 없다.
