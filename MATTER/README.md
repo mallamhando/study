@@ -1,7 +1,6 @@
 # MATTER
 
-## Questions
-### 인증 비용
+## 인증 비용
 * https://csa-iot.org/become-member/
 
 멤버쉽에 따라 다르다. 0 ~ 1,300 만원대의 멤버쉽 등급이 있다.
@@ -11,7 +10,7 @@
 인증이 없는 제품의 Matter 사용도 가능하다.
 하지만 제어 앱 또는 제어 허브에서 인증 받지 않은, 신뢰할수 없는 기기라는 경고가 발생하게 된다.
 
-### 전용 허브 없이 동작
+## 전용 허브 없이 동작?
 * https://www.safewise.com/ultimate-guide-to-matter-smart-home/
 * Matter devices using Wi-Fi and Ethernet don't require a hub to communicate
 
