@@ -5,6 +5,8 @@
 * 전용 허브 없이 동작 가능?
 
 ## Links
+* https://staceyoniot.com/if-a-matter-company-stops-paying-license-fees-what-happens/
+* https://staceyoniot.com/can-you-use-a-diy-matter-product-yes-but/
 * https://brunch.co.kr/@iotstlabs/226
 * https://csa-iot.org/all-solutions/matter/
 * https://staceyoniot.com/is-the-matter-protocol-coming-to-the-iiot/
