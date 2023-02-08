@@ -14,7 +14,7 @@
 * https://www.safewise.com/ultimate-guide-to-matter-smart-home/
 * Matter devices using Wi-Fi and Ethernet don't require a hub to communicate
 
-## For Industrial IoT?
+## For Industrial IoT
 * https://staceyoniot.com/is-the-matter-protocol-coming-to-the-iiot/
 
 Industrial IoT 에 MATTER 가 적용되기 어렵다.
