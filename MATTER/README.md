@@ -3,6 +3,8 @@
 ## Questions
 * 인증 비용?
 * 전용 허브 없이 동작 가능?
+  * https://www.safewise.com/ultimate-guide-to-matter-smart-home/
+  * Matter devices using Wi-Fi and Ethernet don't require a hub to communicate
 
 ## Links
 * https://staceyoniot.com/if-a-matter-company-stops-paying-license-fees-what-happens/
