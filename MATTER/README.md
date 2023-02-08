@@ -1,4 +1,9 @@
 # MATTER
+
+## Questions
+* 인증 비용?
+* 허브 없이 동작 가능?
+
 ## Links
 * https://brunch.co.kr/@iotstlabs/226
 * https://csa-iot.org/all-solutions/matter/
