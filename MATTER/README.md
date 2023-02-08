@@ -1,5 +1,6 @@
 # MATTER
 ## Links
+* https://brunch.co.kr/@iotstlabs/226
 * https://csa-iot.org/all-solutions/matter/
 * https://staceyoniot.com/is-the-matter-protocol-coming-to-the-iiot/
   * Industrial IoT 에 MATTER 가 적용되기 어렵다.
