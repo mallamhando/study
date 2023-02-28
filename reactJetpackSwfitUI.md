@@ -29,7 +29,14 @@
 | 변수 | let | var | var
 | 리터럴 템플릿 | ``${str}`` | `"{str}"` | `"\(str)"`
 | 튜플 | | | `(a, 10, "str")` 
-
+| 옵셔널 타입 |
+| 타입 캐스팅 
+| switch |
+| for |
+| 함수 | function | fun | func
+| 함수 인자 |
+| 클로저 |
+| 클래스 |
 ## 자료
 * https://velog.io/@dev-junku/Android-Naver-Android-Jetpack-Compose-%EC%A0%81%EC%9A%A9-%ED%9B%84%EA%B8%B0-%EB%B0%9C%ED%91%9C-%EC%A0%95%EB%A6%AC
 * https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=ko#3
