@@ -2,13 +2,13 @@
 | :--- | :--- | :--- 
 | PropTypes.node | Slot API |
 | children | Slot API can not be null ?
-| useState | remember |
+| useState | rememberSaveable |
 | redux | compositionLocalOf |
 | context | staticCompositionLocalOf
 | css, flex, css-animation | modifier, Column, Row, Animation
 | async | coroutine
 | canvas | canvas
-| | ViewModel
+| Controller, Wrapper | ViewModel
 | | SQLite
 | | Room
 | | Navigation
@@ -18,3 +18,4 @@
 
 ## 자료
 * https://velog.io/@dev-junku/Android-Naver-Android-Jetpack-Compose-%EC%A0%81%EC%9A%A9-%ED%9B%84%EA%B8%B0-%EB%B0%9C%ED%91%9C-%EC%A0%95%EB%A6%AC
+* https://developer.android.com/codelabs/basic-android-kotlin-compose-viewmodel-and-state?hl=ko#3
