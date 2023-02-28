@@ -8,7 +8,7 @@
 | css, flex, css-animation | modifier, Column, Row, Animation
 | async | coroutine
 | canvas | canvas
-| Controller, Wrapper | ViewModel
+| Controller, Wrapper, Class | ViewModel
 | | SQLite
 | | Room
 | | Navigation
