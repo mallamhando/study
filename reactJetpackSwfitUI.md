@@ -15,7 +15,7 @@
 | useState, redux | Kotlin Flow
 | MUI | Compose Theme
 | npm | Gradle
-| useEffect | SideEffect
+| useEffect | SideEffect, LaunchedEffect
 
 당연히 모든 기능들이 100 % 일치하지는 않는다. 특히 아키텍처와 관련된 기능이 그렇다.
 최대한 단순한 기능으로 부터 시작하고,
