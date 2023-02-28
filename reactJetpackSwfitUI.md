@@ -9,10 +9,10 @@
 | async | coroutine
 | canvas | canvas
 | Class Controller | ViewModel
-| | SQLite
-| | Room
-| | Navigation
-| | Kotlin Flow
+| IndexedDB | SQLite
+| redux, useQuery | Room
+| router-dom | Navigation
+| useState, redux | Kotlin Flow
 | MUI | Compose Theme
 | npm | Gradle
 
