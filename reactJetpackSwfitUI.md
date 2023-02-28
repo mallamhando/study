@@ -23,11 +23,12 @@
 구현이 심화될수록 아키텍처를 적용하려고 해야 한다.
 
 ## Language
-| typescript | kotlin | swift
-| :--- | :--- | :--- 
-| const | val | let
-| let | var | var
-| ``${str}`` | `"{str}"` | `"\(str)"`
+| 용도 | typescript | kotlin | swift
+| :--- | :--- | :--- | :--- 
+| 상수 | const | val | let
+| 변수 | let | var | var
+| 리터럴 템플릿 | ``${str}`` | `"{str}"` | `"\(str)"`
+| 튜플 | | | `(a, 10, "str")` 
 
 ## 자료
 * https://velog.io/@dev-junku/Android-Naver-Android-Jetpack-Compose-%EC%A0%81%EC%9A%A9-%ED%9B%84%EA%B8%B0-%EB%B0%9C%ED%91%9C-%EC%A0%95%EB%A6%AC
