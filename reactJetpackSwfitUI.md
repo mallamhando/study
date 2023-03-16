@@ -7,7 +7,7 @@
 | redux | compositionLocalOf |
 | context | staticCompositionLocalOf
 | css, flex, css-animation | modifier, Column, Row, Animation
-| async | coroutine
+| async | coroutine | async
 | canvas | canvas
 | Class Controller | ViewModel
 | IndexedDB | SQLite
