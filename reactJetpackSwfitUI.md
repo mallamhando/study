@@ -3,7 +3,7 @@
 | :--- | :--- | :--- 
 | PropTypes.node | Slot API |
 | children | Slot API can not be null ?
-| useState | rememberSaveable |
+| useState | rememberSaveable | `@State`
 | redux | compositionLocalOf |
 | context | staticCompositionLocalOf
 | css, flex, css-animation | modifier, Column, Row, Animation
@@ -11,12 +11,12 @@
 | canvas | canvas
 | Class Controller | ViewModel
 | IndexedDB | SQLite
-| redux, useQuery | Room
+| redux, useQuery | Room | ObservableObject
 | router-dom | Navigation
 | useState, redux | Kotlin Flow
 | MUI | Compose Theme
 | npm | Gradle
-| useEffect | SideEffect, LaunchedEffect
+| useEffect | SideEffect, LaunchedEffect | `.onAppear`, `.onChange(of: state)`
 
 당연히 모든 기능들이 100 % 일치하지는 않는다. 특히 아키텍처와 관련된 기능이 그렇다.
 최대한 단순한 기능으로 부터 시작하고,
