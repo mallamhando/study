@@ -5,7 +5,7 @@
 | children | Slot API can not be null ?
 | useState | rememberSaveable | `@State`
 | redux | compositionLocalOf |
-| context | staticCompositionLocalOf
+| context | staticCompositionLocalOf | Environment
 | css, flex, css-animation | modifier, Column, Row, Animation
 | async | coroutine | async
 | canvas | canvas
