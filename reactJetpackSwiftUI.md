@@ -11,7 +11,7 @@
 | canvas | canvas
 | Class Controller | ViewModel
 | IndexedDB | SQLite
-| redux, useQuery | Room | ObservableObject
+| redux, useQuery | Room | Observable
 | router-dom | Navigation
 | useState, redux | Kotlin Flow
 | MUI | Compose Theme
@@ -21,6 +21,13 @@
 당연히 모든 기능들이 100 % 일치하지는 않는다. 특히 아키텍처와 관련된 기능이 그렇다.
 최대한 단순한 기능으로 부터 시작하고,
 구현이 심화될수록 아키텍처를 적용하려고 해야 한다.
+
+### SwiftUI Observable vs Environment
+Observable 을 다른 View 에 전달하려면 observable 객체의 참조체를 전달해야 한다.
+하지만 Environment 은 SwiftUI 환경에 저장하기 때문에 그렇지 않아도 된다.
+
+### SwiftUI Observable vs State
+State 는 하나의 단순한 속성을, Observable 은 복잡한 데이터 조합을 위해 사용한다.
 
 ## Language
 | 용도 | typescript | kotlin | swift
