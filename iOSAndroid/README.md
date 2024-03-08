@@ -5,3 +5,4 @@
 
 ### iOS DispatchQueue Schedule
 - https://developer.apple.com/documentation/dispatch/dispatchqueue/3329230-schedule
+- https://stackoverflow.com/questions/65879018/what-is-the-difference-between-dispatchqueue-schedule-vs-dispatchqueue-async
