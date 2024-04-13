@@ -32,21 +32,12 @@
 
 ![image](https://github.com/mallamhando/study/assets/30172441/787bca8f-d7f4-4a5b-87bb-b6fce1fe6592)
 
+허용된 task id 를 목록을 등록하는 방법으로 어떤 task 가 백그라운드에서 실행되는지 제어할수 있다.
+목록을 생성하기 위해서 `Info.plist` 파일에 id 를 추가한다.
 
-The Xcode project editor showing the Background Modes capabilities editor of the Signing & Capabilities pane. A text callout points to the “+ Capability” button at the top-left above the editors and another callout identifies the two background mode checkbox items.
+1. 프로젝트 탐색기를 열고 target 을 선택한다.
+1. `Info` 를 선택하고 `Custom iOS Target Properties` 를 고른다.
+1. 새 아이템을 목록에 추가하고 ”Permitted background task scheduler identifiers“ 를 선택한다. 이것은 `BGTaskSchedulerPermittedIdentifiers` array 와 일치한다.
+1. 각 인증된 task id 에 string 을 더해 목록에서 각각을 구분한다.
 
-You control which tasks run in the background by registering a list of permitted task identifiers. To create this list, add the identifiers to the Info.plist file.
-
-Open the project navigator and select your target.
-
-Click Info and expand Custom iOS Target Properties.
-
-Add a new item to the list and choose ”Permitted background task scheduler identifiers,“ which corresponds to the BGTaskSchedulerPermittedIdentifiers array.
-
-Add the string for each authorized task identifier as a separate item in the array.
-
-Illustration showing the Custom iOS Target Properties editor of the Info pane. A box is drawn around the example entries in the “Permitted background task schedule identifiers” array, which shows two identifiers. Item 0 is refresh, item 1 is .db_cleaning.
-
-In iOS 13 and later, adding a BGTaskSchedulerPermittedIdentifiers key to the Info.plist disables the application(_:performFetchWithCompletionHandler:) and setMinimumBackgroundFetchInterval(_:) methods.
-
-
+![image](https://github.com/mallamhando/study/assets/30172441/7bbcae0f-ceaf-40c7-a95f-5b81409c55f6)
