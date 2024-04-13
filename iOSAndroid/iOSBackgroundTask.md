@@ -8,6 +8,8 @@
 OS 는 백그라운드에서 앱을 lauche 하거나 등록된 task 를 실행한다.
 
 ## `class BGTaskScheduler`
+앱의 백그라운드 실행을 요청하기 위해 사용하는 스케줄링 task 클래스.
+백그라운드 task 는 앱이 suspend 상태일때 앱이 코드를 실행하는 방법을 준다.
 
 ## Starting and Terminating Tasks During Development
 
