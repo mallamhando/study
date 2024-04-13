@@ -29,3 +29,5 @@
 1. Background Modes 섹션을 선택한다. 만약 target 에 Background Modes 섹션이 없다면, Capability 클릭하고, Background Modes 선택한다.
 1. 만약 `BGAppRefreshTask` 를 사용한다면, ”Background fetch.“ 를 선택한다.
 1. 만약 `BGProcessingTask` 를 사용한다면, ”Background processing.“ 를 선택한다.
+
+![3262152](https://docs-assets.developer.apple.com/published/181e01bab1/3262152~dark@2x.png)
