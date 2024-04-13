@@ -1,4 +1,5 @@
 # Using background tasks to update your app
+- https://developer.apple.com/documentation/uikit/app_and_environment/scenes/preparing_your_ui_to_run_in_the_background/using_background_tasks_to_update_your_app
 
 백그라운드에서 앱이 task 를 수행하기 위해서 동작 시간과 소모전류 사용이 효과적으로 되도록 설정해야 한다.
 
