@@ -30,4 +30,23 @@
 1. 만약 `BGAppRefreshTask` 를 사용한다면, ”Background fetch.“ 를 선택한다.
 1. 만약 `BGProcessingTask` 를 사용한다면, ”Background processing.“ 를 선택한다.
 
-![3262152](https://docs-assets.developer.apple.com/published/181e01bab1/3262152~dark@2x.png)
+![image](https://github.com/mallamhando/study/assets/30172441/787bca8f-d7f4-4a5b-87bb-b6fce1fe6592)
+
+
+The Xcode project editor showing the Background Modes capabilities editor of the Signing & Capabilities pane. A text callout points to the “+ Capability” button at the top-left above the editors and another callout identifies the two background mode checkbox items.
+
+You control which tasks run in the background by registering a list of permitted task identifiers. To create this list, add the identifiers to the Info.plist file.
+
+Open the project navigator and select your target.
+
+Click Info and expand Custom iOS Target Properties.
+
+Add a new item to the list and choose ”Permitted background task scheduler identifiers,“ which corresponds to the BGTaskSchedulerPermittedIdentifiers array.
+
+Add the string for each authorized task identifier as a separate item in the array.
+
+Illustration showing the Custom iOS Target Properties editor of the Info pane. A box is drawn around the example entries in the “Permitted background task schedule identifiers” array, which shows two identifiers. Item 0 is refresh, item 1 is .db_cleaning.
+
+In iOS 13 and later, adding a BGTaskSchedulerPermittedIdentifiers key to the Info.plist disables the application(_:performFetchWithCompletionHandler:) and setMinimumBackgroundFetchInterval(_:) methods.
+
+
