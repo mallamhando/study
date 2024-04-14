@@ -54,3 +54,62 @@ launch sequence 에 대한 자세한 내용은 [the app launch sequence](https:/
 > task 를 스케줄 설정하는 확장 기능이 있다. 하지만 main app 은 반드시 그 task 를 먼저 등록해야 한다.
 > 시스템은 그 앱을 launch 하고 등록된 task 를 실행한다.
 
+![image](https://github.com/mallamhando/study/assets/30172441/a86230a9-aa50-494e-8436-41f079a78b4c)
+
+이어지는 코드는 `handleAppRefresh(task:)` 인 handler 를 등록하는 과정이다.
+해당 handler 는 시스템이 `com.example.apple-samplecode.ColorFeed.refresh` 라는 id 로 task 요청을 수행할때 호출된다.
+
+```swift
+BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.example.apple-samplecode.ColorFeed.refresh", using: nil) { task in
+     self.handleAppRefresh(task: task as! BGAppRefreshTask)
+}
+```
+
+To submit a task request for the system to launch your app in the background at a later time, use submit(_:). When you resubmit a task, the new submission replaces the previous submission.
+
+The code below schedules a refresh task request for the task identifier com.example.apple-samplecode.ColorFeed.refresh that you previously registered.
+
+```swift
+func scheduleAppRefresh() {
+   let request = BGAppRefreshTaskRequest(identifier: "com.example.apple-samplecode.ColorFeed.refresh")
+   // Fetch no earlier than 15 minutes from now.
+   request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60)
+        
+   do {
+      try BGTaskScheduler.shared.submit(request)
+   } catch {
+      print("Could not schedule app refresh: \(error)")
+   }
+}
+```
+
+When the system opens your app in the background, it calls the launch handler to run the task.
+
+Your task provides an expiration handler that the system calls if it needs to terminate your task. You also add code to inform the system if the task completes successfully.
+
+```swift
+func handleAppRefresh(task: BGAppRefreshTask) {
+   // Schedule a new refresh task.
+   scheduleAppRefresh()
+
+
+   // Create an operation that performs the main part of the background task.
+   let operation = RefreshAppContentsOperation()
+   
+   // Provide the background task with an expiration handler that cancels the operation.
+   task.expirationHandler = {
+      operation.cancel()
+   }
+
+
+   // Inform the system that the background task is complete
+   // when the operation completes.
+   operation.completionBlock = {
+      task.setTaskCompleted(success: !operation.isCancelled)
+   }
+
+
+   // Start the operation.
+   operationQueue.addOperation(operation)
+ }
+```
