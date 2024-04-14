@@ -11,7 +11,10 @@ OS 는 백그라운드에서 앱을 lauche 하거나 등록된 task 를 실행�
 앱의 백그라운드 실행을 요청하기 위해 사용하는 스케줄링 task 클래스.
 백그라운드 task 는 앱이 suspend 상태일때 앱이 코드를 실행하는 방법을 준다.
 
+백그라운드 task 를 등록, 스케줄 설정, 실행하는 방법은 [Using_background_tasks_to_update_your_app.md](iOSusing_background_tasks_to_update_your_app.md) 를 참조한다.
+
 ## Starting and Terminating Tasks During Development
+
 
 ## Refreshing and Maintaining Your App Using Background Tasks
 
