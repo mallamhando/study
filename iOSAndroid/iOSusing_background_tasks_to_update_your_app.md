@@ -41,3 +41,16 @@
 1. 각 인증된 task id 에 string 을 더해 목록에서 각각을 구분한다.
 
 ![image](https://github.com/mallamhando/study/assets/30172441/7bbcae0f-ceaf-40c7-a95f-5b81409c55f6)
+
+iOS 13 이후에는 `BGTaskSchedulerPermittedIdentifiers` key 를 `Info.plist` 에 더해서 `application(_:performFetchWithCompletionHandler:)` 과 `setMinimumBackgroundFetchInterval(_:)` method 를 비활성화해야 한다.
+
+## Register, schedule, and run tasks
+
+각 task 에게 launch handler 와 `BGTaskScheduler` 객체가 제공된다.
+launch handler 는 특정 id 와 함께 task 를 실행하기위한 작은 코드 블럭인다.
+앱의 launch sequence 가 끝나기 전에 모든 task 들을 등록해야 한다.
+launch sequence 에 대한 자세한 내용은 [the app launch sequence](https://developer.apple.com/documentation/uikit/app_and_environment/responding_to_the_launch_of_your_app/about_the_app_launch_sequence) 를 참조한다.
+
+> task 를 스케줄 설정하는 확장 기능이 있다. 하지만 main app 은 반드시 그 task 를 먼저 등록해야 한다.
+> 시스템은 그 앱을 launch 하고 등록된 task 를 실행한다.
+
