@@ -65,14 +65,15 @@ BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.example.apple-sample
 }
 ```
 
-To submit a task request for the system to launch your app in the background at a later time, use submit(_:). When you resubmit a task, the new submission replaces the previous submission.
+나중에 시스템이 백그라운드에서 앱을 launch 하기 위한 task 요청을 제출하기 위해 `submit(_:)` 를 사용한다.
+만약 task 를 다시 제출하면 이전 제출을 대신하게 된다.
 
-The code below schedules a refresh task request for the task identifier com.example.apple-samplecode.ColorFeed.refresh that you previously registered.
+아래 코드는 미리 등록해 놓았던 `com.example.apple-samplecode.ColorFeed.refresh` id 의 refresh task 요청을 스케줄 설정한다.
 
 ```swift
 func scheduleAppRefresh() {
    let request = BGAppRefreshTaskRequest(identifier: "com.example.apple-samplecode.ColorFeed.refresh")
-   // Fetch no earlier than 15 minutes from now.
+   // 15 분 후에 fetch 작업을 수행
    request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60)
         
    do {
@@ -83,33 +84,30 @@ func scheduleAppRefresh() {
 }
 ```
 
-When the system opens your app in the background, it calls the launch handler to run the task.
+시스템이 백그라운드에서 앱을 실행하면 task 를 수행하기 위한 launch handler 를 호출한다.
 
-Your task provides an expiration handler that the system calls if it needs to terminate your task. You also add code to inform the system if the task completes successfully.
+task 는 만약 task 를 종료할때 시스템이 호출하기 위해 사용할수 있는 expiration(만기) handler 를 설정할수 있다.
+또한 task 가 완전하게 끝났다는 것을 시스템에 알려주기 위한 코드를 더할수도 있다.
 
 ```swift
 func handleAppRefresh(task: BGAppRefreshTask) {
-   // Schedule a new refresh task.
+   // 새로은 refresh task 를 스케줄 설정
    scheduleAppRefresh()
 
-
-   // Create an operation that performs the main part of the background task.
+   // 백그라운드 task 의 주요 부분을 수행하기 위한 operatiion 을 생성한다.
    let operation = RefreshAppContentsOperation()
    
-   // Provide the background task with an expiration handler that cancels the operation.
+   // operation 을 취소하하기 위한 expiration handler 를 백그라운드 task 에 설정한다.
    task.expirationHandler = {
       operation.cancel()
    }
 
-
-   // Inform the system that the background task is complete
-   // when the operation completes.
+   // operation 이 완료되었을때 시스템에게 background 동작이 완료되었다는 것을 알려준다.
    operation.completionBlock = {
       task.setTaskCompleted(success: !operation.isCancelled)
    }
 
-
-   // Start the operation.
+   // operation 을 시작한다.
    operationQueue.addOperation(operation)
  }
 ```
