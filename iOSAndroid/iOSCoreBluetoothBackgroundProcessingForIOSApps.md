@@ -50,7 +50,38 @@ Core Bluetooth 는 어떤 종류의 central role 이벤트들이 발생했는지
 
 ## Core Bluetooth Background Execution Modes
 
+만약 앱이 background 상태에서 특정 Bluetooth 관련된 task 를 수행하려면, 반드시 Core Bluetooth background execution mode 를 `Info.plist` 파일에 선언해야 한다.
+이걸 선언하면 시스템은 앱이 suspend 상태에서 앱을 깨워 Bluetooth 관련 task 를 수행할수 있게 한다.
+이것은 심장박동 측정기 처럼 특정 주기로 데이터를 수신해야 하는 BLE 장치에게 매우 중요한 기능이다.
+
+앱에서 선언해야 할 두가지 Core Bluetooth background execution mode 가 있는 하나는 앱이 central 역할로 동작할때고 다른 하나는 peripheral 역할로 동작할이다.
+만약 앱이 두 역할 모두를 수행해야 한다면 둘 다를 선언해야 한다.
+Core Bluetooth background execution mode 는 `UIBackgroundModes` 키에 더해져서 선언된다.
+설정 키는 아래의 string 을 포함하고 있다.
+
+- `bluetooth-central` - BLE peripheral 과 통신
+- `bluetooth-peripheral` - 앱이 데이터를 공유
+
+> Xcode 속성 리스트 편집기는 기본적으로 실제 key 값과 다르게 사람이 인식하기 편한 상태로 표시된다.
+> 실제 저장되는 key 값을 확인하기 위해서는 `Info.plist` 의 Raw Keys/Values 보기 기능을 사용해야 한다.
+
 ### The bluetooth - central Background Execution Mode
+
+`Info.plist` 의 `UIBackgroundModes` 키에 `bluetooth-central` 가 설정되어 있다면,
+Core Bluetooth framework 는 앱이 백그라운드에서 특정 Bluetooth 관련 task 를 수행할수 있게 해준다.
+앱이 백그라운드 모드에 있을 동안 peripheral 을 discover 하고 connect 하며, 탐색하고 데이터를 주고 받을 수 있다.
+게다가 시스템은 `CBCentralManagerDelegate` 또는 `CBPeripheralDelegate` 의 위임 메소드들을 실행할수 있게 해준다.
+따라서 앱은 중요한 central 역할 이벤트를 제어할 수 있으며 연결됨/끊김을 알수 있으며,
+characteristic 값이 변경되거나 central manager 의 상태 변경을 감지할 수 있다.
+
+앱이 많은 Bluetooth 관련 task 들을 백그라운드 상태에서 실행할수 있지만,
+peripheral 을 백그라운드 모드에서 할때와 foreground 에서 할때와 다르다는 것을 알아야 한다.
+특히 background 에서 scan 할때는 다음과 같은 사항들이 다르다.
+
+- `CBCentralManagerScanOptionAllowDuplicatesKey` 옵션이 무시된다. 그리고 하나의 discovery 이벤트에 한 advertising peripheral 의 여러 discover 정보들이 합쳐졍서 전달 된다.
+- 만약 모든 앱이 백그라운드에서 scan 동작을 한다면 central device 의 scan 주기가 길어진다. 즉, advertising peripheral 의 발견 주기가 길어지게 된다.
+
+이러한 변화는 iOS 의 무선 동작을 최소화하여 배터리 성능을 길게 만들어준다. 
 
 ### The bluetooth - peripheral Background Execution Mode
 
