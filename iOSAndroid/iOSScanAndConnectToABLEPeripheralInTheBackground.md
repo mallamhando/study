@@ -43,4 +43,13 @@ nRF Connect 에서 scan 한 뒤에 우리는 아래의 화면을 확인 할 수 
 
 ... 생략
 
+## Active vs Passive scanning
+iOS 는 foreground 에서 active scanning 을 하고 background 에서 passive scanning 을 한다.
+
+> activie scanner 는 추가적인 정보를 adveriser 로부터 받기 위해 scan request 를 보낼수 있다.
+> 반면, passive scanner 는 단순히 받을수만 있다.
+> discovery 와 scanning 이 혼용되어 사용되는 말이라는 것을 알아야 한다.
+
+## Fixing the problem!
+Advertising data 수정으로 해결
 
