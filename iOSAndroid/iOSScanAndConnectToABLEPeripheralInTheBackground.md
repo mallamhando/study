@@ -14,3 +14,33 @@
 > 장치들은 characteristic 의 업데이트를 전송하거나는 centrol manager 의 상태가 바뀔때도 앱은 실행될수 있습니다.
 
 ## Service UUID SCAN
+애플 문서는 백그라운드 모드에서 scan 을 하기위해서는 앱이 허용되어야 한다고 말하고 있다.
+하지만 scan 은 반드시 service type 을 명시해야 한다.
+wild card scan 을 위해 nil 을 전달하는 것은 백그라운드 모드에서 지원하지 않는다.
+
+```swift
+public struct ImpactService {
+    public static let service = CBUUID(string: "AFD0FFA0-2A9E-41A9-   B9DB-115A0E511DE4")
+}
+
+centralManager.scanForPeripherals(withServices: [ImpactService.service], options: scanOptions)
+```
+
+## It is not working. Why not?
+애플이 말한대로 하기위새 우리의 BLE peripheral 을 백그라운드 상태에서 scan 하는 기능을 활성화해야 했다.
+하지만 장치를 scan 할수가 없었다.
+이 상황이 흥미로웠던 것은 Android 에서는 정상적으로 동작했기 때문이다.
+iOS 앱 구현이 문제인지 우리의 장치 문제인지 궁금했다.
+
+## nRF Connect 의 advertisement 데이터를 분석하기
+Android 에서 bluethooth data 를 보는 최고의 툴 중에 하나는 nRF Connect 이다.
+특히 Android 버전은 iOS 것보다 더 기능이 많다.
+nRF Connect 에서 scan 한 뒤에 우리는 아래의 화면을 확인 할 수 있었다.
+
+![image](https://github.com/mallamhando/study/assets/30172441/25fd3300-fbdb-4492-a060-0f1e7134177c)
+
+첫번째 아이템은 우리가 찾으려고 했던 그 장치였다.
+
+... 생략
+
+
