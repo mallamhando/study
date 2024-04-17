@@ -88,6 +88,14 @@ peripheral 을 백그라운드 모드에서 할때와 foreground 에서 할때�
 
 ## Use Background Execution Modes Wisely
 
+앱이 적절하게 Core Bluetooth background execution mode 를 선언했다 하더라도, 반드시 백그라운드 동작을 할때는 책임감있게 수행해댜 한다.
+많은 Bluetooth 관련 task 들은 iOS 의 무선 동작을 사용하기 때문이다. 무선 동작은 iOS 의 베터리 수명에 큰 영향을 준다.
+따라서 백그라운드 상태의 동작을 최소화 해야 한다.
+Bluetooth 관련 event 로 앱이 깨어난 다음에는 그것을 가능한 빨리 처리한 다음에 다시 suspend 상태로 돌아가야 한다.
+
+Core Bluetooth background execution mode 를 사용하는 앱은 다음 가이드 라인을 따라야 한다.
+
+- 앱은 반드시 session 기반으로 동작해야 하며 사용자에게 언제 Bluetooth 관련 event 들의 전달을 시작/중지 할수 있는 UI 를 제공해야 한다.
 
 ## Performing Long-Term Actions in the Background
 
