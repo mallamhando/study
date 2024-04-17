@@ -35,4 +35,39 @@ Peripheral 모드일때, advertising 은 비활성화 된다. 그리고 어떤 c
 suspend 상태의 앱은 foreground 상태로 이동하기 전까지는 연결이 끊어졌다는 이벤트를 수신할수 없다.
 
 ### Take Advantage of Peripheral Connection Options
+Foreground 상태에서 발생하는 모든 Bluetooth 관련 이벤트들은 suspend 상태에서 queue 에 저장되었다가 앱이 foreground 상태가 되었을떄 전달된다.
+Core Bluetooth 는 어떤 종류의 central role 이벤트들이 발생했는지 사용자에게 alert 하는 방법이 있다.
+사용자들이 이러한 alert 들을 이용해서 앱이 foreground 로 돌아와야 할지를 결정할수 있다.
 
+이러한 이어지는 peripheral 연결 옵션을 이용해 이러한 alert 기능을 사용할수 있다.
+`CBCentralManager` class 의 `connectionPeripheral:options:` 메소드를 사용하는 것이 그렇다.
+
+- `CBConnectPeripheralOptionNotifyOnConnectionKey`-만약 시스템이 앱이 suspend 상태에 있을 동안 peripheral 과 성공적으로 연결이 되었을때 alert 을 보여주기 원한다면 이 키를 포함해야 한다.
+- `CBConnectPeripheralOptionNotifyOnDisconnectionKey`-만약 시스템이 앱이 suspend 상태에 있을 동안 peripheral 과 연결이 끊겼을때 alert 을 보여주기 원한다면 이 키를 포함해야 한다.
+- `CBConnectPeripheralOptionNotifyOnNotificationKey`-만약 시스템이 앱이 suspend 상태에 있을 동안 peripheral 으로 받는 모든 notification 에 대한 alert 을 보여주기 원한다면 이 키를 포함해야 한다.
+
+자세한 내용은 https://developer.apple.com/documentation/corebluetooth/cbcentralmanager 를 참조한다.
+
+## Core Bluetooth Background Execution Modes
+
+### The bluetooth - central Background Execution Mode
+
+### The bluetooth - peripheral Background Execution Mode
+
+
+## Use Background Execution Modes Wisely
+
+
+## Performing Long-Term Actions in the Background
+
+### State Preservation and Restoration
+
+### Adding Support for State Preservation and Restoration
+
+#### Opt In to State Preservation and Restoration
+
+#### Reinstantiate Your Central and Peripheral Managerss
+
+#### Implement the Appropriate Restoration Delegate Method
+
+#### Update Your Initialization Process
