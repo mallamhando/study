@@ -60,4 +60,12 @@ let trigger = UNCalendarNotificationTrigger(
 
 ## Cancel a scheduled notification request
 
-한번 스케줄 설정되면,
+한번 스케줄 설정되면, notification 요청은 trigger 조건에 도달할때까지 활성화된 상태로 남아있게 된다.
+아니라면, 명벽하게 취소해야한다.
+일반적으로, 조건을 변경되거나 사용자게 더이상 필요하지 않을때 요청은 취소된다.
+예를 들어 사용자가 기억해야 할것을 완료하거나,
+같이 해야할 동작 요청들을 취소해야할 때가 있다.
+활성화된 notification 요청을 취소하기 위해서는,
+[UNUserNotificationCenter](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter) 의 
+[removePendingNotificationRequests(withIdentifiers:)](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/removependingnotificationrequests(withidentifiers:))
+ 매소드를 사용해야 한다.
