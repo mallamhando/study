@@ -37,3 +37,27 @@ content.body = "Every Tuesday at 2pm"
 각 trigger 객체는 다른 파라미터들이 필요하다.
 예를 들어, calendar 기반 trigger 는 전달을 위한 시간과 날짜가 필요하다.
 
+Listing 2 코드는 매주 화요일 오후 2시에 시스템이 notification 을 전달할수 있게 설정하는 예시다.
+[DateComponents](https://developer.apple.com/documentation/foundation/datecomponents)
+구조체는 이벤트의 시간을 설정한다.
+`repeats` 파라미터를 `true` 로 설정하면 시스템은 매일 notification 이벤트 실행 이후에 다시 설정한다.
+
+Listing 2. Configuring a recurring date-based trigger
+
+```swift
+// Configure the recurring date.
+var dateComponents = DateComponents()
+dateComponents.calendar = Calendar.current
+
+
+dateComponents.weekday = 3  // Tuesday
+dateComponents.hour = 14    // 14:00 hours
+   
+// Create the trigger as a repeating event.    
+let trigger = UNCalendarNotificationTrigger(
+         dateMatching: dateComponents, repeats: true)
+```
+
+## Cancel a scheduled notification request
+
+한번 스케줄 설정되면,
