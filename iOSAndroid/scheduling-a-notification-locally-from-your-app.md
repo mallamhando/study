@@ -26,3 +26,14 @@ let content = UNMutableNotificationContent()
 content.title = "Weekly Staff Meeting"
 content.body = "Every Tuesday at 2pm"
 ```
+
+## Specify the conditions for delivery
+
+[UNCalendarNotificationTrigger](https://developer.apple.com/documentation/usernotifications/uncalendarnotificationtrigger), 
+[UNTimeIntervalNotificationTrigger](https://developer.apple.com/documentation/usernotifications/untimeintervalnotificationtrigger)
+ , 
+또는 [UNLocationNotificationTrigger](https://developer.apple.com/documentation/usernotifications/unlocationnotificationtrigger)
+객체를 이용해 전달 상태를 설정할 수 있다.
+각 trigger 객체는 다른 파라미터들이 필요하다.
+예를 들어, calendar 기반 trigger 는 전달을 위한 시간과 날짜가 필요하다.
+
