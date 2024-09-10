@@ -46,3 +46,6 @@ Using the process outlined in this blog post, You can begin to introduce Rust in
 Replacing security critical components with off-the-shelf open-source memory-safe implementations and developing new features in a memory safe language
 will lead to fewer critical vulnerabilities while also providing an improved developer experience.
 
+이 포스팅에서 요약된 방법을 이용해 Rust 를 거대한 기존 펌웨어 소스에 바로 적용할수 있다.
+보안 중심의 컴포넌트를 규격화된 오픈 소스 memory-safe 구현으로 교체하고, memory-safe 한 언오로 새로운 기능을 개발함하는 것은
+개선된 개발 경험을 제공하면서 동시에 낮은 중요 취약성의 상태로 갈수 있게 해준다.
