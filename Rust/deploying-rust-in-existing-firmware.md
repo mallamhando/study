@@ -7,7 +7,7 @@ To provide a secure foundation, we’re extending hardening and the use of memor
 안드로이드는 safe-by-design 원칙을 사용하고 있다.
 이 원칙은 우리를 memory-safe 한 Rust 같은 언어를 채택하게 하고 있고,
 매 release 마다 OS 의 개발의 어려움을 증가시키고 있다.
-안전한 토대를 제공하기 위해, 우리는 견고함을 확장하고 있다. 그리고 memory-safe 한 언어를 Trusty app 들을 포함해 low-level 펌웨어까지 사용하고 있다.
+안전한 토대를 제공하기 위해, 우리는 견고함을 확장하고 있다. 그리고 memory-safe 한 언어를 Trusty app 들을 포함해 low-level 펌웨어까지 사용하고 있다.
 
 In this blog post, we'll show you how to gradually introduce Rust into your existing firmware, prioritizing new code and the most security-critical code.
 You'll see how easy it is to boost security with drop-in Rust replacements, and we'll even demonstrate how the Rust toolchain can handle specialized bare-metal targets.
@@ -19,7 +19,7 @@ We seek to demonstrate that this approach is viable for firmware, providing a pa
 
 C 를 Rust 로 변환하는 것은 새로운 생각이 아니고, librsvg 처럼 여러 경우에 이미 사용되어 왔다.
 효과적이고 영향력있게 memory-safety 의 길로 가는 방법을 제공하기 위해,
-우리는 이러한 접근이 펌웨어도 가능하다는 것을 보여주려고 한다.
+우리는 이러한 접근이 펌웨어도 가능하다는 것을 보여주려고 한다.
 
 ## Memory Safety for Firmware
 
